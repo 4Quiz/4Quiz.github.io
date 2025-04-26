@@ -1,0 +1,128 @@
+/* 全体背景と基本設定 */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* カード型白背景フォーム */
+.form-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* アニメーション（フェード＋スライドアップ） */
+.card-animated {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 問題文 */
+.question {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+  padding: 0 10px;
+  color: #333;
+}
+
+/* ボタンスタイル：角丸＋色付き影 */
+button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 100vh;
+  background: #fff;
+  border: none;
+  box-shadow: 3px 3px 0 #78e5e5;
+  width: 100%;
+  max-width: 480px;
+  margin: 10px auto;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 #78e5e5, 0 0 8px rgba(120, 229, 229, 0.5);
+}
+
+button:disabled {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* 結果テキスト */
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.result.green {
+  color: #4caf50;
+}
+.result.red {
+  color: #f44336;
+}
+
+/* ボタンブロックの余白 */
+.control {
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+/* 回答詳細：正誤ボックス */
+.correct-box, .incorrect-box {
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.correct-box {
+  background-color: #fdd;
+  border-color: #f88;
+}
+.incorrect-box {
+  background-color: #ddf;
+  border-color: #88f;
+}
+
+/* スマホ向け調整 */
+@media (max-width: 600px) {
+  .question {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 16px;
+  }
+}
