@@ -1,4 +1,4 @@
-window.getLOLQuizData = function () {
+window.getST6QuizData = function () {
   return  [
   {
     question: 'リュウの必殺技「波動拳」のコマンドは？',
