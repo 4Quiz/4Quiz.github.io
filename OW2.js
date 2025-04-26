@@ -1,4 +1,4 @@
-window.getLOLQuizData = function () {
+window.getOW2QuizData = function () {
   return  [
 {
   question: 'オーバーウォッチ2に登場するヒーロー『ゲンジ』のアルティメットアビリティの名前は？',
