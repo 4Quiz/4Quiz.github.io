@@ -1,4 +1,4 @@
-window.getLOLQuizData = function () {
+window.getAPEXQuizData = function () {
   return  [
 {
   question: 'APEX LEGENDSで最初に追加されたレジェンドは誰？',
