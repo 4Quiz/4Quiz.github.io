@@ -118,7 +118,7 @@ button:disabled {
 /* スマホ縦向きだけ拡大 */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
-    font-size: 1.5rem; /* 本文の文字サイズ少しだけ大きく */
+    font-size: 1.3rem; /* 本文の文字サイズ少しだけ大きく */
     padding: 10px;
     display: flex;
     flex-direction: column;
