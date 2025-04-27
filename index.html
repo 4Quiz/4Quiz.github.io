@@ -230,17 +230,15 @@ function checkAnswer(i) {
   const isCorrect = (i === q.answer);
   if (isCorrect) correctAnswers++;
 
-  // ★フィードバック表示
+  // ★中央下にフィードバック表示
   const feedbackDiv = document.getElementById('feedback');
   feedbackDiv.innerHTML = `
-    <p style="font-size: 2rem; font-weight: bold; color: ${isCorrect ? '#f44336' : '#2196f3'};">
-      ${isCorrect ? "正解！" : "不正解！"}
-    </p>
-    <p style="font-size: 1.6rem; margin-top: 10px;">
+    <div style="color: ${isCorrect ? '#f44336' : '#2196f3'};">
+      ${isCorrect ? "正解！" : "不正解！"}<br>
       正解数：${correctAnswers} / ${quizData.length}
-    </p>
+    </div>
   `;
-
+　
   // ★ボタン全てを無効化（1問1回答だけ）
   const buttons = document.querySelectorAll("#choices button");
   buttons.forEach(btn => {
