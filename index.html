@@ -206,18 +206,23 @@
       showQuestion();
     }
 
-    function showQuestion() {
-      const q = quizData[currentQuestion];
-      document.getElementById("question").textContent = `Q${currentQuestion + 1}. ${q.question}`;
-      const choicesDiv = document.getElementById("choices");
-      choicesDiv.innerHTML = "";
-      q.choices.forEach((choice, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = choice;
-        btn.onclick = () => checkAnswer(i);
-        choicesDiv.appendChild(btn);
-      });
-    }
+   function showQuestion() {
+  const q = quizData[currentQuestion];
+  document.getElementById("question").textContent = `Q${currentQuestion + 1}. ${q.question}`;
+  
+  const choicesDiv = document.getElementById("choices");
+  choicesDiv.innerHTML = ""; // ボタン一旦クリア
+  
+  const feedbackDiv = document.getElementById('feedback');
+  feedbackDiv.innerHTML = ""; // ★正解・不正解表示もリセット！
+
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = choice;
+    btn.onclick = () => checkAnswer(i);
+    choicesDiv.appendChild(btn);
+  });
+}
 
 function checkAnswer(i) {
   const q = quizData[currentQuestion];
@@ -236,12 +241,21 @@ function checkAnswer(i) {
     </p>
   `;
 
-  currentQuestion++;
-  if (currentQuestion < quizData.length) {
-    showQuestion();
-  } else {
-    showEnd();
-  }
+  // ★ボタン全てを無効化（1問1回答だけ）
+  const buttons = document.querySelectorAll("#choices button");
+  buttons.forEach(btn => {
+    btn.disabled = true;
+  });
+
+  // ★1秒後に次の問題へ（または終了）
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      showQuestion();
+    } else {
+      showEnd();
+    }
+  }, 1000); // ここで待つ秒数（例：1000ミリ秒＝1秒）
 }
 
 
