@@ -115,21 +115,16 @@ button:disabled {
   border-color: #88f;
 }
 
-/* スマホ画面向けスタイル調整 */
 @media (max-width: 600px) {
   body {
     font-size: 1.4rem;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 縦方向中央 */
-    align-items: center;     /* 横方向中央 */
-    min-height: 100vh;        /* 画面の高さいっぱい */
+    text-align: center;
   }
 
   .question {
     font-size: 2.0rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
     width: 100%;
   }
@@ -137,12 +132,12 @@ button:disabled {
   .choices {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+    align-items: center;   /* 中央寄せ！ */
+    justify-content: center;
+    gap: 12px;
   }
 
-  button {
+  .choices button {
     font-size: 1.6rem;
     width: 90%;
     max-width: 400px;
