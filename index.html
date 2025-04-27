@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<!-- 出題設定画面 -->
+<!-- 正解数表示用（中央上） -->
+<div id="score-top" class="score-top"></div>
+
+<!-- 出題設定 -->
 <div id="selector" style="display: block;">
   <h1>出題設定</h1>
   <form id="quiz-form" class="form-card card-animated" onsubmit="return submitSelection()">
@@ -27,25 +30,19 @@
       <label><input type="radio" name="amount" value="10"> 10問</label><br>
     </fieldset>
 
-    <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
-      <legend>設定オプション</legend>
-      <label><input type="checkbox" id="instantFeedback" checked> 回答時に正解を表示</label>
-    </fieldset>
-
-    <div class="control">
+    <div class="control" style="margin-top: 30px;">
       <button type="submit">スタート</button>
     </div>
   </form>
 </div>
 
-<!-- クイズ進行画面 -->
+<!-- クイズ画面 -->
 <div id="quiz-area" style="display: none;">
-  <div class="question" id="question"></div>  <!-- 問題文 -->
-  <div id="choices" class="choices"></div>     <!-- 選択肢ボタン -->
-  <div id="feedback"></div>                    <!-- 正解/不正解メッセージ -->
-  <div class="control" id="control"></div>      <!-- 「詳細を見る」「スタートに戻る」 -->
+  <div class="question" id="question"></div>    <!-- 問題文 -->
+  <div id="choices" class="choices"></div>       <!-- 選択肢ボタン -->
+  <div id="feedback"></div>                      <!-- 正解/不正解 -->
+  <div class="control" id="control"></div>        <!-- ボタン -->
   <div id="details" style="margin-top:20px;"></div> <!-- 回答詳細 -->
-  <div id="score">正解数：0問</div>              <!-- 正解数表示 -->
 </div>
 
 <script>
@@ -151,24 +148,21 @@
   function checkAnswer(selectedIndex) {
     const q = quizData[currentQuestion];
     const isCorrect = selectedIndex === q.answer;
-　　// ★ここ追加：ユーザーが押した答えを記録する
-  userAnswers[currentQuestion] = selectedIndex;
 
-    // 正解・不正解表示
+    userAnswers[currentQuestion] = selectedIndex;
+
     const feedback = document.getElementById('feedback');
     feedback.textContent = isCorrect ? "正解！" : "不正解...";
     feedback.style.color = isCorrect ? 'red' : 'blue';
 
     if (isCorrect) correctAnswers++;
 
-    // 正解数更新
-    document.getElementById("score").textContent = `正解数：${correctAnswers}問`;
+    const scoreTopDiv = document.getElementById("score-top");
+    scoreTopDiv.textContent = `正解数：${correctAnswers} / ${quizData.length}`;
 
-    // ボタンを無効化
     const buttons = document.querySelectorAll("#choices button");
     buttons.forEach(btn => btn.disabled = true);
 
-    // 1秒後次の問題へ
     setTimeout(() => {
       currentQuestion++;
       if (currentQuestion < quizData.length) {
@@ -180,15 +174,24 @@
   }
 
   function showEnd() {
-    document.getElementById("question").textContent = "クイズ終了！";
-    document.getElementById("feedback").textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
-    document.getElementById("choices").innerHTML = "";
-    
-    document.getElementById("control").innerHTML = `
+    const questionDiv = document.getElementById("question");
+    const choicesDiv = document.getElementById("choices");
+    const feedbackDiv = document.getElementById("feedback");
+    const controlDiv = document.getElementById("control");
+    const scoreTopDiv = document.getElementById("score-top");
+
+    questionDiv.innerHTML = `<div style="font-size: 2.4rem; font-weight: bold;">クイズ終了！</div>`;
+    choicesDiv.innerHTML = "";
+    feedbackDiv.innerHTML = "";
+
+    scoreTopDiv.textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
+
+    controlDiv.innerHTML = `
       <button onclick="showDetails()">詳細を見る</button>
       <button onclick="location.reload()">スタートに戻る</button>
     `;
   }
+
   function showDetails() {
     const detailsDiv = document.getElementById("details");
     detailsDiv.innerHTML = '<h3>回答詳細</h3>';
