@@ -120,12 +120,18 @@ button:disabled {
   body {
     font-size: 1.4rem;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦方向中央 */
+    align-items: center;     /* 横方向中央 */
+    min-height: 100vh;        /* 画面の高さいっぱい */
   }
 
   .question {
     font-size: 2.0rem;
     margin-bottom: 20px;
-    text-align: center; /* 問題文も中央に */
+    text-align: center;
+    width: 100%;
   }
 
   .choices {
@@ -133,11 +139,12 @@ button:disabled {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 100%;
   }
 
   button {
     font-size: 1.6rem;
-    width: 90%; /* スマホ画面ではボタンを9割の幅に */
+    width: 90%;
     max-width: 400px;
     padding: 16px;
     margin: 0 auto;
