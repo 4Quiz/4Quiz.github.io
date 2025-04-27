@@ -184,3 +184,10 @@ button:disabled {
   text-align: center;
   z-index: 1000;
 }
+
+#score {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+}
