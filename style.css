@@ -115,18 +115,32 @@ button:disabled {
   border-color: #88f;
 }
 
-/* スマホ向け調整 */
-@media (max-width: 900px) {
+/* スマホ画面向けスタイル調整 */
+@media (max-width: 600px) {
   body {
-    font-size: 2.5rem; /* 全体文字を少し大きく */
-  }
-
-  button {
-    font-size: 2.6rem;
-    padding: 30px;
+    font-size: 1.4rem;
+    padding: 10px;
   }
 
   .question {
-    font-size: 3.2rem;
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+    text-align: center; /* 問題文も中央に */
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button {
+    font-size: 1.6rem;
+    width: 90%; /* スマホ画面ではボタンを9割の幅に */
+    max-width: 400px;
+    padding: 16px;
+    margin: 0 auto;
+    display: block;
   }
 }
