@@ -115,7 +115,7 @@ button:disabled {
   border-color: #88f;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 5000px) {
   body {
     font-size: 1.4rem;
     padding: 10px;
