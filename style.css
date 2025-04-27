@@ -118,7 +118,7 @@ button:disabled {
 /* スマホ縦向きだけ拡大 */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
-    font-size: 2.4rem; /* 元の1.4remの約1.7倍〜2倍 */
+    font-size: 2.0rem; /* 本文の文字サイズ少しだけ大きく */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -129,8 +129,8 @@ button:disabled {
   }
 
   .question {
-    font-size: 3.6rem; /* 問題文もそこそこ大きめに */
-    margin: 30px 0 20px;
+    font-size: 3.0rem; /* 問題文も自然な大きさ */
+    margin: 20px 0 20px;
     width: 100%;
   }
 
@@ -140,16 +140,16 @@ button:disabled {
     align-items: center;
     justify-content: flex-end;
     margin-top: auto;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     width: 100%;
-    gap: 16px;
+    gap: 12px;
   }
 
   .choices button {
-    font-size: 2.8rem; /* ボタン文字サイズも程よく */
+    font-size: 2.4rem; /* ボタンの文字サイズも自然に */
     width: 90%;
-    max-width: 400px;
-    padding: 24px; /* 指で押しやすいくらい */
+    max-width: 360px; /* ボタン幅少し小さめ */
+    padding: 16px 20px; /* 押しやすさ維持しつつ小さめに */
     margin: 0 auto;
     display: block;
   }
