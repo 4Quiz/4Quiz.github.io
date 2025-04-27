@@ -1,315 +1,207 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-   <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <title>4Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .correct-box, .incorrect-box {
-      color: black;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    .correct-box {
-      background-color: #fdd;
-      border-color: #f88;
-    }
-    .incorrect-box {
-      background-color: #ddf;
-      border-color: #88f;
-    }
-
-    .form-card {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .card-animated {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    button {
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 1.5;
-      position: relative;
-      display: block;
-      padding: 1rem 4rem;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.3s;
-      text-align: center;
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      color: #212529;
-      border-radius: 100vh;
-      background: #fff;
-      border: none;
-      box-shadow: 3px 3px 0 #78e5e5;
-      width: 100%;
-      max-width: 480px;
-      margin: 10px auto;
-    }
-
-    button:hover:not(:disabled) {
-      transform: scale(1.03);
-      box-shadow: 0 0 0 #78e5e5, 0 0 8px rgba(120, 229, 229, 0.5);
-    }
-
-    button:disabled {
-      background: #eee;
-      color: #aaa;
-      cursor: not-allowed;
-    }
-  </style>
 </head>
 <body>
 
-  <div id="selector" style="display: block;">
-    <h1>出題設定</h1>
-    <form id="quiz-form" class="form-card card-animated" onsubmit="return submitSelection()">
-      <fieldset style="text-align:left; max-width:400px; margin:auto;">
-        <legend>ゲーム種別</legend>
-        <label><input type="checkbox" name="quiz" value="LOL" checked> League of Legends</label><br>
-        <label><input type="checkbox" name="quiz" value="APEX"> Apex Legends</label><br>
-        <label><input type="checkbox" name="quiz" value="OW2"> Overwatch 2</label><br>
-        <label><input type="checkbox" name="quiz" value="ST6"> STREET FIGHTER 6</label><br>
-      </fieldset>
+<!-- 出題設定画面 -->
+<div id="selector" style="display: block;">
+  <h1>出題設定</h1>
+  <form id="quiz-form" class="form-card card-animated" onsubmit="return submitSelection()">
 
-      <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
-        <legend>問題数</legend>
-        <label><input type="radio" name="amount" value="all" checked> すべて</label><br>
-        <label><input type="radio" name="amount" value="10"> 10問</label><br>
-      </fieldset>
-     
-      <!-- 出題設定フォームの中に追加 -->
-      <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
-        <legend>設定オプション</legend>
-        <label>
-          <input type="checkbox" id="instantFeedback" checked> 
-            回答時に正解・不正解を表示
-        </label>
-      </fieldset>
+    <fieldset style="text-align:left; max-width:400px; margin:auto;">
+      <legend>ゲーム種別</legend>
+      <label><input type="checkbox" name="quiz" value="LOL" checked> League of Legends</label><br>
+      <label><input type="checkbox" name="quiz" value="APEX"> Apex Legends</label><br>
+      <label><input type="checkbox" name="quiz" value="OW2"> Overwatch 2</label><br>
+      <label><input type="checkbox" name="quiz" value="ST6"> STREET FIGHTER 6</label><br>
+    </fieldset>
 
-      <div class="control" style="margin-top: 30px;">
-        <button type="submit">スタート</button>
-      </div>
-    </form>
-  </div>
+    <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
+      <legend>問題数</legend>
+      <label><input type="radio" name="amount" value="all" checked> すべて</label><br>
+      <label><input type="radio" name="amount" value="10"> 10問</label><br>
+    </fieldset>
 
-  <div id="quiz-area" style="display: none;">
-  <div class="question" id="question"></div>  <!-- 問題文：中央揃え -->
-  <div id="feedback" style="margin-top: 20px;"></div>  <!-- ★ここ追加：正解・不正解・正解数表示エリア -->
-  <div class="choices" id="choices"></div>     <!-- ボタンエリア：中央並び -->
-  <div class="control" id="control"></div>     <!-- 次へ進む/詳細ボタンなど -->
-  <div id="details" style="margin-top:20px;"></div>
-　<div id="score">正解数：0問</div>
+    <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
+      <legend>設定オプション</legend>
+      <label><input type="checkbox" id="instantFeedback" checked> 回答時に正解・不正解を表示</label>
+    </fieldset>
+
+    <div class="control">
+      <button type="submit">スタート</button>
+    </div>
+  </form>
 </div>
 
-  <script>
-    const quizFunctionMap = {
-      LOL: 'getLOLQuizData',
-      APEX: 'getAPEXQuizData',
-      OW2: 'getOW2QuizData',
-      ST6: 'getST6QuizData'
-    };
+<!-- クイズ進行画面 -->
+<div id="quiz-area" style="display: none;">
+  <div class="question" id="question"></div>  <!-- 問題文 -->
+  <div id="choices" class="choices"></div>     <!-- 選択肢ボタン -->
+  <div id="feedback"></div>                    <!-- 正解/不正解メッセージ -->
+  <div class="control" id="control"></div>      <!-- 「詳細を見る」「スタートに戻る」 -->
+  <div id="details" style="margin-top:20px;"></div> <!-- 回答詳細 -->
+  <div id="score">正解数：0問</div>              <!-- 正解数表示 -->
+</div>
 
-    let quizDataList = [];
-    let selectedQuizzes = [];
-    let loaded = 0;
-    let questionLimit = null;
+<script>
+  const quizFunctionMap = {
+    LOL: 'getLOLQuizData',
+    APEX: 'getAPEXQuizData',
+    OW2: 'getOW2QuizData',
+    ST6: 'getST6QuizData'
+  };
 
-    function submitSelection() {
-      selectedQuizzes = Array.from(document.querySelectorAll('input[name="quiz"]:checked')).map(cb => cb.value);
-      questionLimit = document.querySelector('input[name="amount"]:checked')?.value;
+  let quizDataList = [];
+  let selectedQuizzes = [];
+  let loaded = 0;
+  let questionLimit = null;
+  let quizData = [], currentQuestion = 0, correctAnswers = 0, userAnswers = [];
 
-      if (selectedQuizzes.length === 0) {
-        alert("最低1つは選択してください。");
-        return false;
-      }
+  function submitSelection() {
+    selectedQuizzes = Array.from(document.querySelectorAll('input[name="quiz"]:checked')).map(cb => cb.value);
+    questionLimit = document.querySelector('input[name="amount"]:checked')?.value;
 
-      document.getElementById("selector").style.display = "none";
-      document.getElementById("quiz-area").style.display = "block";
-
-      quizDataList = [];
-      loaded = 0;
-
-      selectedQuizzes.forEach(quizKey => {
-        const scriptName = `${quizKey}.js`;
-        const script = document.createElement("script");
-        script.src = scriptName;
-        script.onload = () => {
-          const funcName = quizFunctionMap[quizKey];
-          if (typeof window[funcName] === 'function') {
-            quizDataList.push(window[funcName]());
-          }
-          loaded++;
-          if (loaded === selectedQuizzes.length) {
-            initQuiz();
-          }
-        };
-        document.head.appendChild(script);
-      });
-
+    if (selectedQuizzes.length === 0) {
+      alert("最低1つは選択してください。");
       return false;
     }
 
-    function initQuiz() {
-      const merged = quizDataList.flat();
-      if (merged.length === 0) {
-        document.getElementById("question").textContent = "クイズデータが読み込めませんでした。";
-        return;
-      }
-      window.originalQuizData = merged;
-      runQuiz();
-    }
+    document.getElementById("selector").style.display = "none";
+    document.getElementById("quiz-area").style.display = "block";
 
-    let quizData = [], currentQuestion = 0, correctAnswers = 0, userAnswers = [];
+    quizDataList = [];
+    loaded = 0;
 
-    function shuffleArray(array) {
-      return array.map(a => ({ val: a, rnd: Math.random() }))
-                  .sort((a, b) => a.rnd - b.rnd)
-                  .map(a => a.val);
-    }
+    selectedQuizzes.forEach(quizKey => {
+      const scriptName = `${quizKey}.js`;
+      const script = document.createElement("script");
+      script.src = scriptName;
+      script.onload = () => {
+        const funcName = quizFunctionMap[quizKey];
+        if (typeof window[funcName] === 'function') {
+          quizDataList.push(window[funcName]());
+        }
+        loaded++;
+        if (loaded === selectedQuizzes.length) {
+          initQuiz();
+        }
+      };
+      document.head.appendChild(script);
+    });
 
-    function runQuiz() {
-      let baseData = shuffleArray(window.originalQuizData);
-      if (questionLimit !== 'all') baseData = baseData.slice(0, parseInt(questionLimit));
-      quizData = baseData.map(q => {
-        const shuffled = shuffleArray(q.choices);
-        return {
-          question: q.question,
-          choices: shuffled,
-          answer: shuffled.indexOf(q.choices[q.answer]),
-          correct: q.choices[q.answer]
-        };
-      });
-
-      currentQuestion = 0;
-      correctAnswers = 0;
-      userAnswers = [];
-      showQuestion();
-    }
-
-   function showQuestion() {
-  const q = quizData[currentQuestion];
-  document.getElementById("question").textContent = `Q${currentQuestion + 1}. ${q.question}`;
-  
-  const choicesDiv = document.getElementById("choices");
-  choicesDiv.innerHTML = ""; // ボタン一旦クリア
-  
-  const feedbackDiv = document.getElementById('feedback');
-  feedbackDiv.innerHTML = ""; // ★正解・不正解表示もリセット！
-
-  q.choices.forEach((choice, i) => {
-    const btn = document.createElement("button");
-    btn.textContent = choice;
-    btn.onclick = () => checkAnswer(i);
-    choicesDiv.appendChild(btn);
-  });
-}
-
-function checkAnswer(selectedIndex) {
-  const q = quizData[currentQuestion];
-  const result = document.getElementById("result");
-
-  if (selectedIndex === q.answer) {
-    result.textContent = "正解！";
-    result.style.color = "green";
-    correctAnswers++;
-  } else {
-    result.textContent = "不正解！";
-    result.style.color = "red";
+    return false;
   }
 
-  document.getElementById("score").textContent = `${correctAnswers}問正解`;
+  function initQuiz() {
+    const merged = quizDataList.flat();
+    if (merged.length === 0) {
+      document.getElementById("question").textContent = "クイズデータが読み込めませんでした。";
+      return;
+    }
+    window.originalQuizData = merged;
+    runQuiz();
+  }
 
-  // 次の問題へ
-  currentQuestion++;
-  if (currentQuestion < quizData.length) {
-    setTimeout(showQuestion, 1000); // 1秒後に次の問題を表示
-  } else {
+  function shuffleArray(array) {
+    return array.map(a => ({ val: a, rnd: Math.random() }))
+                .sort((a, b) => a.rnd - b.rnd)
+                .map(a => a.val);
+  }
+
+  function runQuiz() {
+    let baseData = shuffleArray(window.originalQuizData);
+    if (questionLimit !== 'all') baseData = baseData.slice(0, parseInt(questionLimit));
+    quizData = baseData.map(q => {
+      const shuffled = shuffleArray(q.choices);
+      return {
+        question: q.question,
+        choices: shuffled,
+        answer: shuffled.indexOf(q.choices[q.answer]),
+        correct: q.choices[q.answer]
+      };
+    });
+
+    currentQuestion = 0;
+    correctAnswers = 0;
+    userAnswers = [];
+    showQuestion();
+  }
+
+  function showQuestion() {
+    const q = quizData[currentQuestion];
+    document.getElementById("question").textContent = `Q${currentQuestion + 1}. ${q.question}`;
+    const choicesDiv = document.getElementById("choices");
+    choicesDiv.innerHTML = "";
+
+    q.choices.forEach((choice, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = choice;
+      btn.onclick = () => checkAnswer(i);
+      choicesDiv.appendChild(btn);
+    });
+
+    document.getElementById("feedback").innerHTML = "";
+  }
+
+  function checkAnswer(selectedIndex) {
+    const q = quizData[currentQuestion];
+    const isCorrect = selectedIndex === q.answer;
+
+    // 正解・不正解表示
+    const feedback = document.getElementById('feedback');
+    feedback.textContent = isCorrect ? "正解！" : "不正解...";
+    feedback.style.color = isCorrect ? 'red' : 'blue';
+
+    if (isCorrect) correctAnswers++;
+
+    // 正解数更新
+    document.getElementById("score").textContent = `正解数：${correctAnswers}問`;
+
+    // ボタンを無効化
+    const buttons = document.querySelectorAll("#choices button");
+    buttons.forEach(btn => btn.disabled = true);
+
+    // 1秒後次の問題へ
     setTimeout(() => {
-      document.getElementById("question").textContent = "クイズ終了！";
-      document.getElementById("choices").innerHTML = "";
-      result.textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        showQuestion();
+      } else {
+        showEnd();
+      }
     }, 1000);
   }
-}
 
-
-
-// 正解数表示用（右上に作成する想定）
-function updateScoreDisplay() {
-  let scoreElement = document.getElementById('score');
-  if (!scoreElement) {
-    scoreElement = document.createElement('div');
-    scoreElement.id = 'score';
-    scoreElement.style.position = 'fixed';
-    scoreElement.style.top = '10px';
-    scoreElement.style.right = '10px';
-    scoreElement.style.background = 'rgba(255,255,255,0.8)';
-    scoreElement.style.padding = '5px 10px';
-    scoreElement.style.borderRadius = '8px';
-    scoreElement.style.fontWeight = 'bold';
-    document.body.appendChild(scoreElement);
+  function showEnd() {
+    document.getElementById("question").textContent = "クイズ終了！";
+    document.getElementById("choices").innerHTML = "";
+    document.getElementById("feedback").textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
+    document.getElementById("control").innerHTML = `
+      <button onclick="showDetails()">詳細を見る</button>
+      <button onclick="location.reload()">スタートに戻る</button>
+    `;
   }
-  scoreElement.textContent = `正解数: ${correctAnswers} / ${quizData.length}`;
-}
 
-// 正解・不正解を下に表示する
-function showImmediateFeedback(isCorrect) {
-  const choicesDiv = document.getElementById("choices");
-  const feedback = document.createElement('div');
-  feedback.textContent = isCorrect ? "正解！" : "不正解...";
-  feedback.style.marginTop = '10px';
-  feedback.style.fontWeight = 'bold';
-  feedback.style.color = isCorrect ? 'red' : 'blue';
-  choicesDiv.appendChild(feedback);
-}
-
-
-    function showEnd() {
-      document.getElementById("question").textContent = "クイズ終了！";
-      document.getElementById("choices").innerHTML = "";
-      document.getElementById("control").innerHTML = `
-        <p>あなたの正解数：${correctAnswers} / ${quizData.length}</p>
-        <button onclick="showDetails()">詳細を見る</button>
-        <button onclick="location.reload()">スタートに戻る</button>
-      `;
-    }
-
-    function showDetails() {
-      const detailsDiv = document.getElementById("details");
-      detailsDiv.innerHTML = '<h3>回答詳細</h3>';
-      quizData.forEach((q, index) => {
-        const isCorrect = userAnswers[index] === q.answer;
-        const userAnswerText = q.choices[userAnswers[index]] || "未回答";
-        detailsDiv.innerHTML += `
-          <div class="${isCorrect ? 'correct-box' : 'incorrect-box'}">
-            <strong>Q${index + 1}: ${q.question}</strong><br>
-            あなたの答え: ${userAnswerText}<br>
-            正解: ${q.correct}
-          </div>`;
-      });
-    }
-  </script>
+  function showDetails() {
+    const detailsDiv = document.getElementById("details");
+    detailsDiv.innerHTML = '<h3>回答詳細</h3>';
+    quizData.forEach((q, index) => {
+      const isCorrect = userAnswers[index] === q.answer;
+      const userAnswerText = q.choices[userAnswers[index]] || "未回答";
+      detailsDiv.innerHTML += `
+        <div class="${isCorrect ? 'correct-box' : 'incorrect-box'}">
+          <strong>Q${index + 1}: ${q.question}</strong><br>
+          あなたの答え: ${userAnswerText}<br>
+          正解: ${q.correct}
+        </div>`;
+    });
+  }
+</script>
 
 </body>
 </html>
