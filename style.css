@@ -146,7 +146,7 @@ button:disabled {
   }
 
   .choices button {
-    font-size: 2.0rem; /* ボタンの文字サイズも自然に */
+    font-size: 1.3rem; /* ボタンの文字サイズも自然に */
     width: 90%;
     max-width: 360px; /* ボタン幅少し小さめ */
     padding: 16px 20px; /* 押しやすさ維持しつつ小さめに */
