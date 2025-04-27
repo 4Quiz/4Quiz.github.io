@@ -116,17 +116,17 @@ button:disabled {
 }
 
 /* スマホ向け調整 */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   body {
-    font-size: 1.4rem; /* 全体文字を少し大きく */
+    font-size: 2.5rem; /* 全体文字を少し大きく */
   }
 
   button {
-    font-size: 1.6rem;
-    padding: 18px;
+    font-size: 2.6rem;
+    padding: 30px;
   }
 
   .question {
-    font-size: 2.2rem;
+    font-size: 3.2rem;
   }
 }
