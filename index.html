@@ -151,6 +151,8 @@
   function checkAnswer(selectedIndex) {
     const q = quizData[currentQuestion];
     const isCorrect = selectedIndex === q.answer;
+　　// ★ここ追加：ユーザーが押した答えを記録する
+  userAnswers[currentQuestion] = selectedIndex;
 
     // 正解・不正解表示
     const feedback = document.getElementById('feedback');
