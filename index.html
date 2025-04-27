@@ -225,36 +225,32 @@
   });
 }
 
-function checkAnswer(i) {
+function checkAnswer(selectedIndex) {
   const q = quizData[currentQuestion];
-  userAnswers[currentQuestion] = i;
-  const isCorrect = (i === q.answer);
-  if (isCorrect) correctAnswers++;
+  const result = document.getElementById("result");
 
-  // ★中央下にフィードバック表示
-  const feedbackDiv = document.getElementById('feedback');
-  feedbackDiv.innerHTML = `
-    <div style="color: ${isCorrect ? '#f44336' : '#2196f3'};">
-      ${isCorrect ? "正解！" : "不正解！"}<br>
-      正解数：${correctAnswers} / ${quizData.length}
-    </div>
-  `;
-　
-  // ★ボタン全てを無効化（1問1回答だけ）
-  const buttons = document.querySelectorAll("#choices button");
-  buttons.forEach(btn => {
-    btn.disabled = true;
-  });
+  if (selectedIndex === q.answer) {
+    result.textContent = "正解！";
+    result.style.color = "green";
+    correctAnswers++;
+  } else {
+    result.textContent = "不正解！";
+    result.style.color = "red";
+  }
 
-  // ★1秒後に次の問題へ（または終了）
-  setTimeout(() => {
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
-      showQuestion();
-    } else {
-      showEnd();
-    }
-  }, 1000); // ここで待つ秒数（例：1000ミリ秒＝1秒）
+  document.getElementById("score").textContent = `${correctAnswers}問正解`;
+
+  // 次の問題へ
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    setTimeout(showQuestion, 1000); // 1秒後に次の問題を表示
+  } else {
+    setTimeout(() => {
+      document.getElementById("question").textContent = "クイズ終了！";
+      document.getElementById("choices").innerHTML = "";
+      result.textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
+    }, 1000);
+  }
 }
 
 
