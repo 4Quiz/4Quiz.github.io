@@ -118,8 +118,8 @@ button:disabled {
 /* スマホ縦向きだけ拡大 */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
-    font-size: 1.6rem; /* 全体さらに大きく */
-    padding: 20px;
+    font-size: 2.4rem; /* 元の1.4remの約1.7倍〜2倍 */
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -129,8 +129,8 @@ button:disabled {
   }
 
   .question {
-    font-size: 2.0rem; /* 問題文も拡大 */
-    margin: 40px 0 30px;
+    font-size: 3.6rem; /* 問題文もそこそこ大きめに */
+    margin: 30px 0 20px;
     width: 100%;
   }
 
@@ -140,16 +140,16 @@ button:disabled {
     align-items: center;
     justify-content: flex-end;
     margin-top: auto;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     width: 100%;
-    gap: 20px;
+    gap: 16px;
   }
 
   .choices button {
-    font-size: 5.5rem;
+    font-size: 2.8rem; /* ボタン文字サイズも程よく */
     width: 90%;
-    max-width: 600px;
-    padding: 50px;
+    max-width: 400px;
+    padding: 24px; /* 指で押しやすいくらい */
     margin: 0 auto;
     display: block;
   }
