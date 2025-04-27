@@ -118,7 +118,7 @@ button:disabled {
 /* スマホ縦向きだけ拡大 */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
-    font-size: 2.0rem; /* 本文の文字サイズ少しだけ大きく */
+    font-size: 1.5rem; /* 本文の文字サイズ少しだけ大きく */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@ button:disabled {
   }
 
   .question {
-    font-size: 3.0rem; /* 問題文も自然な大きさ */
+    font-size: 1.5rem; /* 問題文も自然な大きさ */
     margin: 20px 0 20px;
     width: 100%;
   }
