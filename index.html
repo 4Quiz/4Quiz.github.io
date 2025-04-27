@@ -217,18 +217,44 @@
       });
     }
 
-    function checkAnswer(i) {
-      const q = quizData[currentQuestion];
-      userAnswers[currentQuestion] = i;
-      if (i === q.answer) correctAnswers++;
+   function checkAnswer(i) {
+  const q = quizData[currentQuestion];
+  userAnswers[currentQuestion] = i;
+  const isCorrect = (i === q.answer);
+  if (isCorrect) correctAnswers++;
 
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        showQuestion();
-      } else {
-        showEnd();
-      }
-    }
+  // 即時フィードバックONの場合だけ表示
+  if (document.getElementById('instantFeedback').checked) {
+    alert(isCorrect ? "正解！" : "不正解！");
+    updateScoreDisplay();
+  }
+
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion();
+  } else {
+    showEnd();
+  }
+}
+
+// 正解数表示用（右上に作成する想定）
+function updateScoreDisplay() {
+  let scoreElement = document.getElementById('score');
+  if (!scoreElement) {
+    scoreElement = document.createElement('div');
+    scoreElement.id = 'score';
+    scoreElement.style.position = 'fixed';
+    scoreElement.style.top = '10px';
+    scoreElement.style.right = '10px';
+    scoreElement.style.background = 'rgba(255,255,255,0.8)';
+    scoreElement.style.padding = '5px 10px';
+    scoreElement.style.borderRadius = '8px';
+    scoreElement.style.fontWeight = 'bold';
+    document.body.appendChild(scoreElement);
+  }
+  scoreElement.textContent = `正解数: ${correctAnswers} / ${quizData.length}`;
+}
+
 
     function showEnd() {
       document.getElementById("question").textContent = "クイズ終了！";
