@@ -217,7 +217,7 @@
       });
     }
 
-   function checkAnswer(i) {
+ function checkAnswer(i) {
   const q = quizData[currentQuestion];
   userAnswers[currentQuestion] = i;
   const isCorrect = (i === q.answer);
@@ -225,15 +225,26 @@
 
   // 即時フィードバックONの場合だけ表示
   if (document.getElementById('instantFeedback').checked) {
-    alert(isCorrect ? "正解！" : "不正解！");
+    showImmediateFeedback(isCorrect);
     updateScoreDisplay();
-  }
 
-  currentQuestion++;
-  if (currentQuestion < quizData.length) {
-    showQuestion();
+    // 少し待ってから次の問題へ
+    setTimeout(() => {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        showQuestion();
+      } else {
+        showEnd();
+      }
+    }, 1000); // 1秒待つ
   } else {
-    showEnd();
+    // フィードバックOFFなら即次の問題へ
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      showQuestion();
+    } else {
+      showEnd();
+    }
   }
 }
 
@@ -253,6 +264,17 @@ function updateScoreDisplay() {
     document.body.appendChild(scoreElement);
   }
   scoreElement.textContent = `正解数: ${correctAnswers} / ${quizData.length}`;
+}
+
+// 正解・不正解を下に表示する
+function showImmediateFeedback(isCorrect) {
+  const choicesDiv = document.getElementById("choices");
+  const feedback = document.createElement('div');
+  feedback.textContent = isCorrect ? "正解！" : "不正解...";
+  feedback.style.marginTop = '10px';
+  feedback.style.fontWeight = 'bold';
+  feedback.style.color = isCorrect ? 'red' : 'blue';
+  choicesDiv.appendChild(feedback);
 }
 
 
