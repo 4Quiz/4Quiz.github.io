@@ -181,20 +181,14 @@
 
   function showEnd() {
     document.getElementById("question").textContent = "クイズ終了！";
+    document.getElementById("feedback").textContent = `あなたの正解数：${correctAnswers} / ${quizData.length}`;
     document.getElementById("choices").innerHTML = "";
-    const feedback = document.getElementById("feedback");
-  feedback.innerHTML = `
-    <p style="margin-top: 20px; font-size: 1.8rem;">
-      あなたの正解数：${correctAnswers} / ${quizData.length}
-    </p>
-  `;
-
+    
     document.getElementById("control").innerHTML = `
       <button onclick="showDetails()">詳細を見る</button>
       <button onclick="location.reload()">スタートに戻る</button>
     `;
   }
-
   function showDetails() {
     const detailsDiv = document.getElementById("details");
     detailsDiv.innerHTML = '<h3>回答詳細</h3>';
