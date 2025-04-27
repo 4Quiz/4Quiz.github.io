@@ -115,7 +115,7 @@
 
   <div id="quiz-area" style="display: none;">
   <div class="question" id="question"></div>  <!-- 問題文：中央揃え -->
-  <div id="feedback"></div> <!-- ★ここ追加：正解・不正解・正解数表示エリア -->
+  <div id="feedback" style="margin-top: 20px;"></div>  <!-- ★ここ追加：正解・不正解・正解数表示エリア -->
   <div class="choices" id="choices"></div>     <!-- ボタンエリア：中央並び -->
   <div class="control" id="control"></div>     <!-- 次へ進む/詳細ボタンなど -->
   <div id="details" style="margin-top:20px;"></div>
@@ -225,13 +225,13 @@ function checkAnswer(i) {
   const isCorrect = (i === q.answer);
   if (isCorrect) correctAnswers++;
 
-  // ★ここ変更！
+  // ★フィードバック表示
   const feedbackDiv = document.getElementById('feedback');
   feedbackDiv.innerHTML = `
-    <p style="font-size: 2rem; font-weight: bold;">
+    <p style="font-size: 2rem; font-weight: bold; color: ${isCorrect ? '#f44336' : '#2196f3'};">
       ${isCorrect ? "正解！" : "不正解！"}
     </p>
-    <p style="font-size: 1.6rem;">
+    <p style="font-size: 1.6rem; margin-top: 10px;">
       正解数：${correctAnswers} / ${quizData.length}
     </p>
   `;
@@ -243,6 +243,7 @@ function checkAnswer(i) {
     showEnd();
   }
 }
+
 
 
 // 正解数表示用（右上に作成する想定）
