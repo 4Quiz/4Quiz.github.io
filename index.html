@@ -115,6 +115,7 @@
 
   <div id="quiz-area" style="display: none;">
   <div class="question" id="question"></div>  <!-- 問題文：中央揃え -->
+  <div id="feedback"></div> <!-- ★ここ追加：正解・不正解・正解数表示エリア -->
   <div class="choices" id="choices"></div>     <!-- ボタンエリア：中央並び -->
   <div class="control" id="control"></div>     <!-- 次へ進む/詳細ボタンなど -->
   <div id="details" style="margin-top:20px;"></div>
@@ -218,36 +219,31 @@
       });
     }
 
- function checkAnswer(i) {
+function checkAnswer(i) {
   const q = quizData[currentQuestion];
   userAnswers[currentQuestion] = i;
   const isCorrect = (i === q.answer);
   if (isCorrect) correctAnswers++;
 
-  // 即時フィードバックONの場合だけ表示
-  if (document.getElementById('instantFeedback').checked) {
-    showImmediateFeedback(isCorrect);
-    updateScoreDisplay();
+  // ★ここ変更！
+  const feedbackDiv = document.getElementById('feedback');
+  feedbackDiv.innerHTML = `
+    <p style="font-size: 2rem; font-weight: bold;">
+      ${isCorrect ? "正解！" : "不正解！"}
+    </p>
+    <p style="font-size: 1.6rem;">
+      正解数：${correctAnswers} / ${quizData.length}
+    </p>
+  `;
 
-    // 少し待ってから次の問題へ
-    setTimeout(() => {
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        showQuestion();
-      } else {
-        showEnd();
-      }
-    }, 1000); // 1秒待つ
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion();
   } else {
-    // フィードバックOFFなら即次の問題へ
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
-      showQuestion();
-    } else {
-      showEnd();
-    }
+    showEnd();
   }
 }
+
 
 // 正解数表示用（右上に作成する想定）
 function updateScoreDisplay() {
