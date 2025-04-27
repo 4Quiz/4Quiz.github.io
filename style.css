@@ -79,17 +79,24 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* 結果テキスト */
-.result {
-  font-size: 18px;
+/* 結果テキスト（正解・不正解） */
+#feedback {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.8rem;
   font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* 正解数表示 */
+#score {
   margin-top: 20px;
-}
-.result.green {
-  color: #4caf50;
-}
-.result.red {
-  color: #f44336;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* ボタンブロックの余白 */
@@ -118,7 +125,7 @@ button:disabled {
 /* スマホ縦向きだけ拡大 */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
-    font-size: 1.3rem; /* 本文の文字サイズ少しだけ大きく */
+    font-size: 1.3rem;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -129,7 +136,7 @@ button:disabled {
   }
 
   .question {
-    font-size: 1.5rem; /* 問題文も自然な大きさ */
+    font-size: 1.5rem;
     margin: 20px 0 20px;
     width: 100%;
   }
@@ -146,16 +153,25 @@ button:disabled {
   }
 
   .choices button {
-    font-size: 1.3rem; /* ボタンの文字サイズも自然に */
+    font-size: 1.3rem;
     width: 90%;
-    max-width: 360px; /* ボタン幅少し小さめ */
-    padding: 16px 20px; /* 押しやすさ維持しつつ小さめに */
+    max-width: 360px;
+    padding: 16px 20px;
     margin: 0 auto;
     display: block;
   }
+
+  #feedback {
+    font-size: 2.5rem;
+    bottom: 60px;
+  }
+
+  #score {
+    font-size: 1.8rem;
+  }
 }
 
-/* スマホ横向きは普通にする */
+/* スマホ横向き（ランドスケープ）は通常設定 */
 @media (max-width: 600px) and (orientation: landscape) {
   body {
     font-size: 1.4rem;
@@ -172,22 +188,4 @@ button:disabled {
     width: 90%;
     max-width: 400px;
   }
-}
-
-#feedback {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-align: center;
-  z-index: 1000;
-}
-
-#score {
-  margin-top: 20px;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-align: center;
 }
