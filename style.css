@@ -107,17 +107,14 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* 正解・不正解表示エリア */
 #feedback {
-  position: fixed;
-  bottom: 180px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.8rem;
+  margin-top: 20px;
+  font-size: 2.0rem;
   font-weight: bold;
   text-align: center;
-  z-index: 1000;
+  color: inherit; /* 色はjsで赤・青切り替えする */
 }
+
 
 /* 正解数（右上固定表示） */
 #score-top {
