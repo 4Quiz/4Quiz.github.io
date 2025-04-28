@@ -41,8 +41,12 @@
   <div class="question" id="question"></div>    <!-- 問題文 -->
   <div id="choices" class="choices"></div>       <!-- 選択肢ボタン -->
   <div id="feedback"></div>                      <!-- 正解/不正解 -->
+　<div id="end-button-area" class="end-button-area">
+ 　 <button id="end-quiz-button" onclick="forceEndQuiz()">終了する</button>
+　</div>
   <div class="control" id="control"></div>        <!-- ボタン -->
   <div id="details" style="margin-top:20px;"></div> <!-- 回答詳細 -->
+
 </div>
 
 <script>
@@ -206,6 +210,11 @@
         </div>`;
     });
   }
+  function forceEndQuiz() {
+  // 強制的にクイズを終了
+  currentQuestion = quizData.length; // 現在の質問数を最大にして
+  showEnd(); // showEnd() を呼び出して終了画面に飛ぶ
+}
 </script>
 
 </body>
