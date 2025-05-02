@@ -2,251 +2,67 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>クイズ選択＆実行</title>
+  <title>4Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .correct-box, .incorrect-box {
-      color: black;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-    .correct-box {
-      background-color: #fdd;
-      border-color: #f88;
-    }
-    .incorrect-box {
-      background-color: #ddf;
-      border-color: #88f;
-    }
-
-    .form-card {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .card-animated {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    button {
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 1.5;
-      position: relative;
-      display: block;
-      padding: 1rem 4rem;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.3s;
-      text-align: center;
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      color: #212529;
-      border-radius: 100vh;
-      background: #fff;
-      border: none;
-      box-shadow: 3px 3px 0 #78e5e5;
-      width: 100%;
-      max-width: 480px;
-      margin: 10px auto;
-    }
-
-    button:hover:not(:disabled) {
-      transform: scale(1.03);
-      box-shadow: 0 0 0 #78e5e5, 0 0 8px rgba(120, 229, 229, 0.5);
-    }
-
-    button:disabled {
-      background: #eee;
-      color: #aaa;
-      cursor: not-allowed;
-    }
-  </style>
 </head>
 <body>
 
-  <div id="selector" style="display: block;">
-    <h1>出題設定</h1>
-    <form id="quiz-form" class="form-card card-animated" onsubmit="return submitSelection()">
-      <fieldset style="text-align:left; max-width:400px; margin:auto;">
-        <legend>ゲーム種別</legend>
-        <label><input type="checkbox" name="quiz" value="LOL" checked> League of Legends</label><br>
-        <label><input type="checkbox" name="quiz" value="APEX"> Apex Legends</label><br>
-        <label><input type="checkbox" name="quiz" value="OW2"> Overwatch 2</label><br>
-        <label><input type="checkbox" name="quiz" value="ST6"> STREET FIGHTER 6</label><br>
-      </fieldset>
+<div id="score-top" class="score-top"></div>
 
-      <fieldset style="text-align:left; max-width:400px; margin:auto; margin-top:20px;">
-        <legend>問題数</legend>
-        <label><input type="radio" name="amount" value="all" checked> すべて</label><br>
-        <label><input type="radio" name="amount" value="10"> 10問</label><br>
-      </fieldset>
+<!-- 出題設定 -->
+<div id="selector" class="form-card card-animated">
+  <form id="quiz-form" onsubmit="return submitSelection()">
 
-      <div class="control" style="margin-top: 30px;">
-        <button type="submit">スタート</button>
+    <fieldset>
+      <legend>ゲーム種別</legend>
+      <div id="game-buttons" class="button-group">
+        <button type="button" class="select-button" data-value="LOL">League of Legends</button>
+        <button type="button" class="select-button" data-value="APEX">Apex Legends</button>
+        <button type="button" class="select-button" data-value="OW2">Overwatch 2</button>
+        <button type="button" class="select-button" data-value="ST6">STREET FIGHTER 6</button>
+      　<button type="button" class="select-button" data-value="VALO">VALORANT</button>
+　　　</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>難易度</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="difficulty" value="all" checked> すべて</label>
+        <label><input type="radio" name="difficulty" value="normal"> 初級</label>
+        <label><input type="radio" name="difficulty" value="hard"> 中級</label>
+        <label><input type="radio" name="difficulty" value="veryhard"> 上級</label>
       </div>
-    </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>問題数</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="amount" value="all" checked> すべて</label>
+        <label><input type="radio" name="amount" value="10"> 10問</label>
+      </div>
+    </fieldset>
+
+    <div class="control">
+      <button type="submit"class="select-button">スタート</button>
+    </div>
+  </form>
+</div>
+
+<!-- クイズ画面 -->
+<div id="quiz-area" style="display: none;">
+  <div class="question" id="question"></div>
+  <div id="choices" class="choices"></div>
+  <div id="feedback"></div>
+  <div id="end-button-area" class="end-button-area">
+    <button id="end-quiz-button" onclick="forceEndQuiz()">終了する</button>
   </div>
+  <div id="control" class="control"></div>
+ <!-- 表示前は非表示に -->
+<div id="details" class="form-card" style="margin-top:20px; display: none;"></div>
 
-  <div id="quiz-area" style="display: none;">
-    <div class="question" id="question"></div>
-    <div class="choices" id="choices"></div>
-    <div class="control" id="control"></div>
-    <div id="details" style="margin-top:20px;"></div>
-  </div>
+</div>
 
-  <script>
-    const quizFunctionMap = {
-      LOL: 'getLOLQuizData',
-      APEX: 'getAPEXQuizData',
-      OW2: 'getOW2QuizData',
-      ST6: 'getST6QuizData'
-    };
-
-    let quizDataList = [];
-    let selectedQuizzes = [];
-    let loaded = 0;
-    let questionLimit = null;
-
-    function submitSelection() {
-      selectedQuizzes = Array.from(document.querySelectorAll('input[name="quiz"]:checked')).map(cb => cb.value);
-      questionLimit = document.querySelector('input[name="amount"]:checked')?.value;
-
-      if (selectedQuizzes.length === 0) {
-        alert("最低1つは選択してください。");
-        return false;
-      }
-
-      document.getElementById("selector").style.display = "none";
-      document.getElementById("quiz-area").style.display = "block";
-
-      quizDataList = [];
-      loaded = 0;
-
-      selectedQuizzes.forEach(quizKey => {
-        const scriptName = `${quizKey}.js`;
-        const script = document.createElement("script");
-        script.src = scriptName;
-        script.onload = () => {
-          const funcName = quizFunctionMap[quizKey];
-          if (typeof window[funcName] === 'function') {
-            quizDataList.push(window[funcName]());
-          }
-          loaded++;
-          if (loaded === selectedQuizzes.length) {
-            initQuiz();
-          }
-        };
-        document.head.appendChild(script);
-      });
-
-      return false;
-    }
-
-    function initQuiz() {
-      const merged = quizDataList.flat();
-      if (merged.length === 0) {
-        document.getElementById("question").textContent = "クイズデータが読み込めませんでした。";
-        return;
-      }
-      window.originalQuizData = merged;
-      runQuiz();
-    }
-
-    let quizData = [], currentQuestion = 0, correctAnswers = 0, userAnswers = [];
-
-    function shuffleArray(array) {
-      return array.map(a => ({ val: a, rnd: Math.random() }))
-                  .sort((a, b) => a.rnd - b.rnd)
-                  .map(a => a.val);
-    }
-
-    function runQuiz() {
-      let baseData = shuffleArray(window.originalQuizData);
-      if (questionLimit !== 'all') baseData = baseData.slice(0, parseInt(questionLimit));
-      quizData = baseData.map(q => {
-        const shuffled = shuffleArray(q.choices);
-        return {
-          question: q.question,
-          choices: shuffled,
-          answer: shuffled.indexOf(q.choices[q.answer]),
-          correct: q.choices[q.answer]
-        };
-      });
-
-      currentQuestion = 0;
-      correctAnswers = 0;
-      userAnswers = [];
-      showQuestion();
-    }
-
-    function showQuestion() {
-      const q = quizData[currentQuestion];
-      document.getElementById("question").textContent = `Q${currentQuestion + 1}. ${q.question}`;
-      const choicesDiv = document.getElementById("choices");
-      choicesDiv.innerHTML = "";
-      q.choices.forEach((choice, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = choice;
-        btn.onclick = () => checkAnswer(i);
-        choicesDiv.appendChild(btn);
-      });
-    }
-
-    function checkAnswer(i) {
-      const q = quizData[currentQuestion];
-      userAnswers[currentQuestion] = i;
-      if (i === q.answer) correctAnswers++;
-
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        showQuestion();
-      } else {
-        showEnd();
-      }
-    }
-
-    function showEnd() {
-      document.getElementById("question").textContent = "クイズ終了！";
-      document.getElementById("choices").innerHTML = "";
-      document.getElementById("control").innerHTML = `
-        <p>あなたの正解数：${correctAnswers} / ${quizData.length}</p>
-        <button onclick="showDetails()">詳細を見る</button>
-        <button onclick="location.reload()">スタートに戻る</button>
-      `;
-    }
-
-    function showDetails() {
-      const detailsDiv = document.getElementById("details");
-      detailsDiv.innerHTML = '<h3>回答詳細</h3>';
-      quizData.forEach((q, index) => {
-        const isCorrect = userAnswers[index] === q.answer;
-        const userAnswerText = q.choices[userAnswers[index]] || "未回答";
-        detailsDiv.innerHTML += `
-          <div class="${isCorrect ? 'correct-box' : 'incorrect-box'}">
-            <strong>Q${index + 1}: ${q.question}</strong><br>
-            あなたの答え: ${userAnswerText}<br>
-            正解: ${q.correct}
-          </div>`;
-      });
-    }
-  </script>
-
+<script src="main.js"></script>
 </body>
 </html>
-
