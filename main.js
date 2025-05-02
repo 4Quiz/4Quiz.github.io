@@ -1,3 +1,4 @@
+console.log("main.js loaded");  // ← これはmain.jsの一番上に入れてください
 
 let selectedQuizzes = [];
 let selectedDifficulty = 'normal';
