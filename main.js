@@ -12,8 +12,8 @@ const quizFunctionMap = {
   LOL: 'getLOLQuizData',
   APEX: 'getAPEXQuizData',
   OW2: 'getOW2QuizData',
-  ST6: 'getST6QuizData'
-　VALO: 'getVALOQuizData'
+  ST6: 'getST6QuizData',
+　VALO: 'getVALOQuizData',
 
 };
 
