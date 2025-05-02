@@ -1,3 +1,4 @@
+
 let selectedQuizzes = [];
 let selectedDifficulty = 'normal';
 let questionLimit = 'all';
@@ -7,6 +8,7 @@ let quizData = [];
 let currentQuestion = 0;
 let correctAnswers = 0;
 let userAnswers = [];
+
 
 const quizFunctionMap = {
   LOL: 'getLOLQuizData',
