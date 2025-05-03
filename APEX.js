@@ -1,4 +1,4 @@
-console.log("APEX.js loaded");
+
 window.getAPEXQuizData = function () {
   return [
     {
