@@ -304,7 +304,7 @@ window.getAPEXQuizData = function () {
       question: 'ポジション有利を維持するために必要なことは？',
       choices: ['常に攻める', '敵の移動を見張る', '回復を優先', 'アルティメットを使う'],
       answer: 1,
-      difficulty: 'veryhard',
+      difficulty: 'veryhard'
     },
 
   ];
