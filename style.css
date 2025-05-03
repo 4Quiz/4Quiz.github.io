@@ -22,7 +22,11 @@ body {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
 }
-
+@media (max-width: 600px) {
+  .form-card {
+    margin-top: -30px; /* スマホ向けの上方向調整 */
+  }
+}
 /* アニメーション（フェード＋スライドアップ） */
 .card-animated {
   opacity: 0;
