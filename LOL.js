@@ -86,6 +86,66 @@ window.getLOLQuizData = function() {
       answer: 0
     },
 
+    {
+      difficulty: 'normal',
+      question: 'LOLで体力を回復するサモナースペルはどれ？',
+      choices: ['ヒール', 'フラッシュ', 'スマイト', 'テレポート'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: '敵に近づくためによく使われるサモナースペルは？',
+      choices: ['フラッシュ', 'バリア', 'イグゾースト', 'スマイト'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: 'ジャングラーがよく持つサモナースペルは？',
+      choices: ['スマイト', 'ヒール', 'クレンズ', 'バリア'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: 'LOLでチャンピオンのスキルを使うために必要なものは？',
+      choices: ['マナ', 'ゴールド', '経験値', '装備'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: '敵の視界を消すために使うトリンケットは？',
+      choices: ['オラクルレンズ', 'ワーディングトーテム', 'ファーサイト', 'コントロールワード'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: '敵のスキルを避けるのに有効なサモナースペルは？',
+      choices: ['フラッシュ', 'ヒール', 'テレポート', 'スマイト'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: '敵の位置を確認するために使うアイテムは？',
+      choices: ['ワード', 'ポーション', 'リコール', 'スイープ'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: 'LOLの基本的な勝利条件は？',
+      choices: ['ネクサスを破壊する', '敵を全滅させる', 'すべてのタワーを破壊する', '全員が20キルする'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: '「ADC」とはどのレーンで主に使われる？',
+      choices: ['ボットレーン', 'トップレーン', 'ジャングル', 'ミッドレーン'],
+      answer: 0
+    },
+    {
+      difficulty: 'normal',
+      question: 'LOLで最も重要なオブジェクトの一つは？',
+      choices: ['バロンナッシャー', 'カニ', 'ミニオン', 'テレポート'],
+      answer: 0
+    },    
     // ★ hard（やや知識必要問題）
     {
       difficulty: 'hard',
@@ -141,25 +201,85 @@ window.getLOLQuizData = function() {
       choices: ['移動妨害時に味方HPバフ', '追加物理ダメージ 通常攻撃時効果', 'ダメージ軽減とスロウ効果を付与', '追加魔法ダメージ'],
       answer: 0
     },
-{
+    {
       difficulty: 'hard',
       question: 'ブラッドソングの効果は？',
       choices: ['移動妨害時に味方HPバフ', '追加物理ダメージ 通常攻撃時効果', 'ダメージ軽減とスロウ効果を付与', '追加魔法ダメージ'],
       answer: 0
     },
-　　{
+    {
       difficulty: 'hard',
       question: 'セレスティアル オポジションの効果は？',
       choices: ['移動妨害時に味方HPバフ', '追加物理ダメージ', 'ダメージ軽減とスロウ効果を付与', '追加魔法ダメージ'],
       answer: 0
     },
-　　{
+    {
       difficulty: 'hard',
       question: 'ドリーム メーカーの効果は？',
       choices: ['移動妨害時に味方HPバフ', '追加物理ダメージ', 'ダメージ軽減とスロウ効果を付与', '追加魔法ダメージ'],
       answer: 0
     },
-
+    
+    {
+      difficulty: 'hard',
+      question: '「CC」とは何の略？',
+      choices: ['クラウドコントロール', 'クイックキャスト', 'クリープキャッチ', 'チャージキャノン'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '「オブジェクト志向」のプレイとは何を優先する？',
+      choices: ['ドラゴンやバロンの制圧', '1v1でのキル', 'ミニオン狩り', 'アイテム収集'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '敵ジャングルにワードを置く目的は？',
+      choices: ['ガンクの察知', '敵を挑発する', '回復のため', '自分の経験値獲得'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '視界外の敵にスキルを当てる手段は？',
+      choices: ['ブッシュにワードを置く', 'スキルをばらまく', 'ミニオンに当てる', 'トーテムで攻撃'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '敵チームがバロンを始めたか確認する方法は？',
+      choices: ['バロンにワードを置く', 'マップを開く', '味方を行かせる', 'チャットで聞く'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '「リーシュ」とは何を指す？',
+      choices: ['ジャングル開始時にダメージを与えるサポート', '敵を挑発すること', 'リコールをすること', 'タワーを殴ること'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: 'バロンバフの効果に含まれるのは？',
+      choices: ['ミニオン強化', 'HP回復', '経験値増加', 'スキルクール減少'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '「ピール」とは何のこと？',
+      choices: ['味方キャリーを守る動き', '敵を倒すこと', '視界を取ること', 'バロンを狩ること'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: 'ADCが持つことが少ないサモナースペルは？',
+      choices: ['テレポート', 'ヒール', 'フラッシュ', 'クレンズ'],
+      answer: 0
+    },
+    {
+      difficulty: 'hard',
+      question: '試合の序盤を指す用語は？',
+      choices: ['レーンフェーズ', 'ミッドゲーム', 'レイトゲーム', 'ドラフト'],
+      answer: 0
+    },    
     // ★ veryhard（戦術・高度な応用）
     {
       difficulty: 'veryhard',
@@ -191,5 +311,67 @@ window.getLOLQuizData = function() {
       choices: ['味方と固まらず広がる', '密集して固まる', '敵ジャングルに入る', '真ん中を歩いて進軍する'],
       answer: 0
     },
+    {
+      difficulty: 'veryhard',
+      question: '敵ADCにCCを当てる最も効果的なタイミングは？',
+      choices: ['フラッシュを使った直後', 'タワー下にいるとき', '味方が離れているとき', 'リコール中'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'CCチェーンを決めるときの注意点は？',
+      choices: ['効果時間を重ねないようにする', '全員同時にCCを打つ', '敵のタワー下で使う', 'CCをばらばらに当てる'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'レーンスワップの目的として正しいのは？',
+      choices: ['不利なマッチアップを回避する', '相手を怒らせる', 'キルを狙う', '森を回る'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'リバーにワードを置く最も効果的な位置は？',
+      choices: ['茂みの中央', 'タワー下', '自陣の入り口', '敵のネクサス'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'ジャングラーがLv3でガンクを狙う理由は？',
+      choices: ['CCとダメージが揃うため', '敵がリコールする前だから', 'ワードがないから', 'アルティメットが使えるから'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'ゾーニングとは？',
+      choices: ['相手の行動範囲を制限するプレイ', 'ゾーニャを使うこと', '敵を倒すこと', '森を歩くこと'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: '「セーフプレイ」とはどんなスタイル？',
+      choices: ['無理な仕掛けをせず安全に立ち回る', '積極的に仕掛ける', '敵のジャングルに入る', '味方と距離を取る'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: 'ドラゴンファイトでの最も重要な役割は？',
+      choices: ['視界確保と位置取り', '敵ADCに突っ込む', 'スキルを先に使う', 'バックドアを狙う'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: '「オブジェクトトレード」の例として適切なのは？',
+      choices: ['敵がバロン中にドラゴンを取る', '敵を倒さず帰る', '視界だけ取って下がる', '味方を見捨てる'],
+      answer: 0
+    },
+    {
+      difficulty: 'veryhard',
+      question: '視界が無い場所でファイトを避けるべき理由は？',
+      choices: ['敵の位置が不明で不利になりやすいから', 'ミニオンがいないから', 'リコールのタイミングだから', 'チャットで怒られるから'],
+      answer: 0
+    },
+    
+    
   ];
 };
