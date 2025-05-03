@@ -165,6 +165,14 @@ fieldset:not(:last-of-type)::after {
   margin-top: 30px;
   padding: 0 10px;
 }
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ボタン間の隙間 */
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 /* 回答詳細：正誤ボックス */
 .correct-box, .incorrect-box {
