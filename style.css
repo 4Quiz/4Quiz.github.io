@@ -137,12 +137,12 @@ button:disabled {
 fieldset {
   border: none;
   padding: 0;
-  margin-bottom: 15px;
+  margin-bottom: 13px;
 }
 fieldset:not(:last-of-type)::after {
   content: "";
   display: block;
-  margin: 10px auto 0;
+  margin: 13px auto 0;
   width: 80%;
   max-width: 400px;
   height: 5px; /* 太さを1px → 3pxに変更 */
