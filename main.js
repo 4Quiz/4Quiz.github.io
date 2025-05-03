@@ -16,7 +16,7 @@ const quizFunctionMap = {
   APEX: 'getAPEXQuizData',
   OW2: 'getOW2QuizData',
   ST6: 'getST6QuizData',
-　VALO: 'getVALOQuizData',
+  VALO: 'getVALOQuizData',
 
 };
 
@@ -30,15 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function submitSelection() {
-  selectedQuizzes = Array.from(document.querySelectorAll('.select-button.selected')).map(btn => btn.dataset.value);
+  // 選択されたボタンを取得
+  const selectedButtons = document.querySelectorAll('.select-button.selected');
+  selectedQuizzes = Array.from(selectedButtons).map(btn => btn.dataset.value);
+
+  // 難易度と問題数
   selectedDifficulty = document.querySelector('input[name="difficulty"]:checked')?.value || 'normal';
   questionLimit = document.querySelector('input[name="amount"]:checked')?.value || 'all';
 
+  // ✅ ゲーム種別が選ばれていない場合のアラート
   if (selectedQuizzes.length === 0) {
-    alert("最低1つは選択してください。");
+    alert("必ずゲーム種別を1つ以上選択してください。");
     return false;
   }
 
+  // スタート処理
   document.getElementById("selector").style.display = "none";
   document.getElementById("quiz-area").style.display = "block";
 
@@ -48,22 +54,27 @@ function submitSelection() {
   return false;
 }
 
+
 function loadSelectedQuizzes() {
   let loaded = 0;
 
   selectedQuizzes.forEach(quizKey => {
     const script = document.createElement('script');
-    script.src = `data/${quizKey}.js`;
+    script.src = `${quizKey}.js`;
 
     script.onload = () => {
       const funcName = quizFunctionMap[quizKey];
       if (typeof window[funcName] === 'function') {
         const data = window[funcName]();
+        console.log(`✅ ${funcName} 読み込み成功`, data);
         quizDataList.push(...data);
+      } else {
+        console.warn(`⚠️ 関数 ${funcName} が定義されていません`);
       }
+
       loaded++;
       if (loaded === selectedQuizzes.length) {
-        initQuiz();
+        initQuiz();  // ← すべて読み込み終わったら実行
       }
     };
 
@@ -79,7 +90,10 @@ function loadSelectedQuizzes() {
   });
 }
 
+
 function initQuiz() {
+  console.log("📋 quizDataList", quizDataList); // ← ここ追加
+
   if (quizDataList.length === 0) {
     document.getElementById("question").textContent = "クイズデータが読み込めませんでした。";
     return;
@@ -201,8 +215,10 @@ function showEnd() {
 
 function showDetails() {
   const detailsElem = document.getElementById("details");
-  detailsElem.style.display = "block"; // ← この1行を追加
-  detailsElem.innerHTML = "<h3>回答詳細</h3>";  quizData.forEach((q, idx) => {
+  detailsElem.style.display = "block";
+  detailsElem.innerHTML = "<h3>回答詳細</h3>";
+
+  quizData.forEach((q, idx) => {
     const isCorrect = userAnswers[idx] === q.answer;
     const userChoice = q.choices[userAnswers[idx]] || "未回答";
 
