@@ -81,7 +81,12 @@ button:disabled {
   color: #aaa;
   cursor: not-allowed;
 }
-
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* ボタン間の統一された隙間 */
+}
 .select-button {
   /* 基本の見た目 */
   font-size: 1.4rem;
@@ -92,6 +97,10 @@ button:disabled {
   color: #333;
   cursor: pointer;
   transition: 0.3s;
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .select-button.selected {
@@ -152,7 +161,7 @@ fieldset:not(:last-of-type)::after {
 }
 
 /* ボタンブロックの余白 */
-.contr
+.contr {
   margin-top: 30px;
   padding: 0 10px;
 }
