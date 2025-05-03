@@ -363,6 +363,8 @@ window.getVALOQuizData = function () {
       question: 'クロスヘアの最適な設定は？',
       choices: ['緑で大きめ', '透明で細い', '見やすく敵を狙いやすい色とサイズ', '赤くて太く'],
       answer: 2,
-    },
+    }
+
+
   ];
 };
