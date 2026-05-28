@@ -75,7 +75,7 @@
 </div>
 
 <script>
-  let selectedGame = "";
+  window.selectedGame = "";
 
   const gameDifficultyMap = {
     LOL: [
@@ -108,7 +108,7 @@
   };
 
   function selectGame(gameKey) {
-    selectedGame = gameKey;
+   window.selectedGame = gameKey;
 
     document.querySelectorAll(".select-button").forEach(button => {
       button.classList.remove("selected");
