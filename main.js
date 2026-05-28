@@ -22,9 +22,9 @@ const quizFunctionMap = {
 
 function submitSelection() {
   // index.html の selectGame() で選ばれたゲームを優先
-  if (typeof selectedGame !== "undefined" && selectedGame !== "") {
-    selectedQuizzes = [selectedGame];
-  } else {
+  if (window.selectedGame) {
+  selectedQuizzes = [window.selectedGame];
+} else {
     const selectedButton = document.querySelector(".select-button.selected");
 
     if (!selectedButton) {
