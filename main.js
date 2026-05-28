@@ -18,27 +18,7 @@ const quizFunctionMap = {
   VALO: "getVALOQuizData",
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const settingsArea = document.getElementById("quiz-settings");
 
-  if (settingsArea) {
-    settingsArea.style.display = "none";
-  }
-
-  document.querySelectorAll(".select-button").forEach(button => {
-    button.addEventListener("click", () => {
-      document.querySelectorAll(".select-button").forEach(btn => {
-        btn.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-
-      if (settingsArea) {
-        settingsArea.style.display = "block";
-      }
-    });
-  });
-});
 
 function submitSelection() {
   const selectedButton = document.querySelector(".select-button.selected");
