@@ -21,14 +21,19 @@ const quizFunctionMap = {
 
 
 function submitSelection() {
-  const selectedButton = document.querySelector(".select-button.selected");
+  // index.html の selectGame() で選ばれたゲームを優先
+  if (typeof selectedGame !== "undefined" && selectedGame !== "") {
+    selectedQuizzes = [selectedGame];
+  } else {
+    const selectedButton = document.querySelector(".select-button.selected");
 
-  if (!selectedButton) {
-    alert("必ずゲーム種別を1つ選択してください。");
-    return false;
+    if (!selectedButton) {
+      alert("必ずゲーム種別を1つ選択してください。");
+      return false;
+    }
+
+    selectedQuizzes = [selectedButton.dataset.value];
   }
-
-  selectedQuizzes = [selectedButton.dataset.value];
 
   selectedDifficulty = document.querySelector('input[name="difficulty"]:checked')?.value || "all";
   questionLimit = document.querySelector('input[name="amount"]:checked')?.value || "all";
