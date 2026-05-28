@@ -5,6 +5,7 @@
   <title>4Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
 
@@ -18,20 +19,32 @@
       <legend>ゲーム種別</legend>
       <div id="game-buttons" class="button-group">
         <button type="button" class="select-button" data-value="LOL">League of Legends</button>
+
+        <!-- 後で復活させる場合はコメントアウトを外してください
         <button type="button" class="select-button" data-value="APEX">Apex Legends</button>
         <button type="button" class="select-button" data-value="OW2">Overwatch 2</button>
         <button type="button" class="select-button" data-value="ST6">STREET FIGHTER 6</button>
         <button type="button" class="select-button" data-value="VALO">VALORANT</button>
+        -->
       </div>
     </fieldset>
 
-    <fieldset>
-      <legend>難易度</legend>
+    <!-- LOL用設定 -->
+    <fieldset id="lol-options" class="game-options">
+      <legend>League of Legends 設定</legend>
+
       <div class="radio-group">
+        <p>難易度</p>
         <label><input type="radio" name="difficulty" value="all" checked> すべて</label>
         <label><input type="radio" name="difficulty" value="normal"> 初級</label>
         <label><input type="radio" name="difficulty" value="hard"> 中級</label>
         <label><input type="radio" name="difficulty" value="veryhard"> 上級</label>
+      </div>
+
+      <div class="radio-group" style="margin-top: 15px;">
+        <p>パッチ・タグ</p>
+        <label><input type="radio" name="tag" value="all" checked> すべて</label>
+        <label><input type="radio" name="tag" value="26.11"> 26.11</label>
       </div>
     </fieldset>
 
@@ -48,27 +61,29 @@
     </div>
 
     <div class="footer-links" style="margin-top: 10px; font-size: 12px;">
-  <a href="privacy.html" target="_blank" style="margin-right: 20px;">プライバシーポリシー</a>
-  <a href="https://docs.google.com/forms/d/1Eqcl3HLWspbqWoWGNSd4S-dQXpBfz89P79axQl8FqW4/edit?hl=ja&pli=1#settings" target="_blank">
-    <button type="button" style="font-size: 12px; padding: 6px 12px; width: auto;">お問い合わせ</button>
-  </a>
-</div>
-
-    
-　　<div style="margin-top: 20px;">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8288896372224240"
-     crossorigin="anonymous"></script>
-<!-- quiz_top_ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8288896372224240"
-     data-ad-slot="3959211676"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+      <a href="privacy.html" target="_blank" style="margin-right: 20px;">プライバシーポリシー</a>
+      <a href="https://docs.google.com/forms/d/1Eqcl3HLWspbqWoWGNSd4S-dQXpBfz89P79axQl8FqW4/edit?hl=ja&pli=1#settings" target="_blank">
+        <button type="button" style="font-size: 12px; padding: 6px 12px; width: auto;">お問い合わせ</button>
+      </a>
     </div>
+
+    <div style="margin-top: 20px;">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8288896372224240"
+        crossorigin="anonymous"></script>
+
+      <!-- quiz_top_ad -->
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-8288896372224240"
+        data-ad-slot="3959211676"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
   </form>
 </div>
 
@@ -77,13 +92,14 @@
   <div class="question" id="question"></div>
   <div id="choices" class="choices"></div>
   <div id="feedback"></div>
+
   <div id="end-button-area" class="end-button-area">
     <button id="end-quiz-button" onclick="forceEndQuiz()">終了する</button>
   </div>
-  <div id="control" class="control"></div>
- <!-- 表示前は非表示に -->
-<div id="details" class="form-card" style="margin-top:20px; display: none;"></div>
 
+  <div id="control" class="control"></div>
+
+  <div id="details" class="form-card" style="margin-top:20px; display: none;"></div>
 </div>
 
 <script src="main.js" defer></script>
