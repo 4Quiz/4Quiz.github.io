@@ -36,6 +36,7 @@ function submitSelection() {
   }
 
   selectedDifficulty = document.querySelector('input[name="difficulty"]:checked')?.value || "all";
+  console.log("選択されたカテゴリ:", selectedDifficulty);
   questionLimit = document.querySelector('input[name="amount"]:checked')?.value || "all";
 
   document.getElementById("selector").style.display = "none";
@@ -101,9 +102,11 @@ function initQuiz() {
 function runQuiz() {
   let baseData = window.originalQuizData;
 
-  if (selectedDifficulty !== "all") {
-    baseData = baseData.filter(q => q.difficulty === selectedDifficulty);
-  }
+ if (selectedDifficulty !== "all") {
+  baseData = baseData.filter(q => {
+    return String(q.difficulty).trim() === String(selectedDifficulty).trim();
+  });
+}
 
   if (baseData.length === 0) {
     document.getElementById("question").textContent = "選択した条件の問題がありません。";
