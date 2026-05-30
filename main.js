@@ -102,9 +102,7 @@ function runQuiz() {
   let baseData = window.originalQuizData;
 
   if (selectedDifficulty !== "all") {
-    baseData = baseData.filter(q => {
-      return q.difficulty === selectedDifficulty || q.tag === selectedDifficulty;
-    });
+    baseData = baseData.filter(q => q.difficulty === selectedDifficulty);
   }
 
   if (baseData.length === 0) {
