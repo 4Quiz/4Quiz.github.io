@@ -52,7 +52,7 @@ function loadSelectedQuizzes() {
 
   selectedQuizzes.forEach(quizKey => {
     const script = document.createElement("script");
-    script.src = `${quizKey}.js`;
+    script.src = `${quizKey}.js?v=${Date.now()}`;
 
     script.onload = () => {
       const funcName = quizFunctionMap[quizKey];
