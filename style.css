@@ -220,3 +220,8 @@ fieldset:not(:last-of-type)::after {
     padding: 16px;
   }
 }
+#question-image-area img.question-image {
+  width: 120px !important;
+  max-width: 40% !important;
+  height: auto !important;
+}
