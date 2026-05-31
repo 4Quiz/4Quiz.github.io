@@ -280,10 +280,5 @@ function showDetails() {
 }
 
 function forceEndQuiz() {
-  const imageArea = document.getElementById("question-image-area");
-  if (imageArea) {
-    imageArea.innerHTML = "";
-  }
-
   showEnd();
 }
