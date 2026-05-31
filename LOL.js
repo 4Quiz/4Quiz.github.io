@@ -1227,9 +1227,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのQの追加魔法ダメージの基本倍率はどう変更された？",
-     images: [
+  images: [
        "image/26.11/スモルダー.png",
-   "image/26.11/固有スキル - 駆けだしドラゴン.png",
+ "image/26.11/固有スキル - 駆けだしドラゴン.png",
        ],
   choices: [
     "固有スキルのスタックの40%から25%に低下",
@@ -1254,7 +1254,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのEの追加魔法ダメージの基本倍率はどう変更された？",
-   images: [
+images: [
      "image/26.11/スモルダー.png", 
 　　　"image/26.11/固有スキル - 駆けだしドラゴン.png",
       ],
@@ -1269,7 +1269,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのEの追加魔法ダメージは、何によってスケーリングするようになった？",
-　  images: [
+images: [
      "image/26.11/スモルダー.png",
 　　　"image/26.11/固有スキル - 駆けだしドラゴン.png",
       ],
@@ -1323,7 +1323,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の追加ダメージの増加攻撃力反映率はどうなった？",
-      images: [
+images: [
         "image/26.11/シン・ジャオ.png",
   　　　 "image/26.11/固有スキル - 不退転.png",
          ],
@@ -1338,7 +1338,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の体力回復量の魔力反映率はどう変更された？",
-     images: [
+images: [
        "image/26.11/シン・ジャオ.png",
  　　　　"image/26.11/固有スキル - 不退転.png",
         ],
