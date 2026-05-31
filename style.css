@@ -43,16 +43,17 @@ body {
 #question-image-area {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 2px;
   flex-wrap: wrap;
 }
+
 .question-image {
-  max-width: 45%;
-  width: 160px;
+  width: 160px !important;
+  max-width: 45% !important;
   height: auto !important;
   border-radius: 10px;
   display: block;
-  margin: 0 auto 15px;
+  margin: 0 2px 15px;
 }
 
 /* 問題文 */
