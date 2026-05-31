@@ -237,7 +237,9 @@ function showEnd() {
   const feedbackElem = document.getElementById("feedback");
   const controlElem = document.getElementById("control");
   const endButton = document.getElementById("end-quiz-button");
-
+ if (imageArea) {
+    imageArea.innerHTML = "";
+  }
   if (endButton) {
     endButton.style.display = "none";
   }
