@@ -228,13 +228,12 @@ fieldset:not(:last-of-type)::after {
   height: auto !important;
 }
 
-```css
 /* ========================================
    プライバシーポリシーページ用
    privacy.html
 ======================================== */
 
-.privacy-page {
+body.privacy-page {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #fce4ec);
   background-attachment: fixed;
@@ -243,10 +242,10 @@ fieldset:not(:last-of-type)::after {
   color: #333;
   min-height: 100vh;
   line-height: 1.7;
+  text-align: left;
 }
 
-/* プライバシーポリシー用カード */
-.policy-card {
+body.privacy-page .policy-card {
   background-color: #ffffff;
   border: 1px solid #ddd;
   padding: 28px;
@@ -257,8 +256,7 @@ fieldset:not(:last-of-type)::after {
   text-align: left;
 }
 
-/* フェード＋スライドアップ */
-.card-animated {
+body.privacy-page .card-animated {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.6s ease forwards;
@@ -271,8 +269,7 @@ fieldset:not(:last-of-type)::after {
   }
 }
 
-/* タイトル */
-.policy-card h1 {
+body.privacy-page .policy-card h1 {
   text-align: center;
   font-size: 28px;
   margin: 0 0 24px;
@@ -282,8 +279,7 @@ fieldset:not(:last-of-type)::after {
   letter-spacing: 0.05em;
 }
 
-/* 見出し */
-.policy-card h2 {
+body.privacy-page .policy-card h2 {
   font-size: 18px;
   margin: 30px 0 10px;
   padding-left: 12px;
@@ -291,51 +287,46 @@ fieldset:not(:last-of-type)::after {
   color: #333;
 }
 
-/* 本文 */
-.policy-card p {
+body.privacy-page .policy-card p {
   font-size: 15px;
   margin: 0 0 14px;
 }
 
-/* 冒頭文 */
-.policy-lead {
+body.privacy-page .policy-lead {
   text-align: center;
   margin-bottom: 24px;
 }
 
-/* 制定日 */
-.policy-date {
+body.privacy-page .policy-date {
   text-align: right;
   margin-top: 32px;
   color: #666;
   font-size: 14px;
 }
 
-/* スマホ向け調整 */
 @media (max-width: 600px) {
-  .privacy-page {
+  body.privacy-page {
     padding: 12px;
   }
 
-  .policy-card {
+  body.privacy-page .policy-card {
     padding: 22px 18px;
     margin: 10px auto;
   }
 
-  .policy-card h1 {
+  body.privacy-page .policy-card h1 {
     font-size: 24px;
   }
 
-  .policy-card h2 {
+  body.privacy-page .policy-card h2 {
     font-size: 17px;
   }
 
-  .policy-card p {
+  body.privacy-page .policy-card p {
     font-size: 14px;
   }
 
-  .policy-lead {
+  body.privacy-page .policy-lead {
     text-align: left;
   }
 }
-```
