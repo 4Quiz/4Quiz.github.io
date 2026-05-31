@@ -160,11 +160,23 @@ function showQuestion() {
 
   imageArea.innerHTML = "";
 
-  if (q.image) {
-    imageArea.innerHTML = `
-      <img src="${q.image}" alt="問題画像" class="question-image">
-    `;
-  }
+// 複数画像対応
+if (q.images && q.images.length > 0) {
+
+  imageArea.innerHTML = q.images
+    .map(img =>
+      `<img src="${img}" alt="問題画像" class="question-image">`
+    )
+    .join("");
+
+}
+// 単一画像対応
+else if (q.image) {
+
+  imageArea.innerHTML =
+    `<img src="${q.image}" alt="問題画像" class="question-image">`;
+
+}
 
   questionElem.textContent = `Q${currentQuestion + 1}. ${q.question}`;
   choicesElem.innerHTML = "";
