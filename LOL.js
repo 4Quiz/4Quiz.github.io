@@ -611,7 +611,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台射程はどう変更された？",
-  images: [ "image/26.11/heimerdinger.png",
+  images: [ "image/26.11/ハイマーディンガー.png",
   "image/26.11/Q - H-28G革新砲.png",
            ],
   choices: ["530から550に増加", "550から530に低下", "600に増加", "変更なし"],
@@ -620,7 +620,7 @@ window.getLOLQuizData = function() {
  {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーに調整が入った主な理由は？",
-  image: "image/26.11/heimerdinger.png",
+  image: "image/26.11/ハイマーディンガー.png",
   choices: [
     "砲台とミニオンの射程の相互作用に問題があったため",
     "アルティメットのダメージが高すぎたため",
@@ -632,7 +632,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台が困っていた相手は？",
-  images: [  "image/26.11/ハheimerdinger.png",
+  images: [  "image/26.11/ハイマーディンガー.png",
  "image/26.11/Q - H-28G革新砲.png",
       ],     
   choices: [
@@ -646,7 +646,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台の視界範囲はどう変更された？",
- images: [  "image/26.11/heimerdinger.png",
+ images: [  "image/26.11/ハイマーディンガー.png",
   "image/26.11/Q - H-28G革新砲.png",
            ],
   choices: [
@@ -660,7 +660,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台は、他に射程内の対象がいない場合どうなる？",
-  images: ["image/26.11/heimerdinger.png",
+  images: ["image/26.11/ハイマーディンガー.png",
   "image/26.11/Q - H-28G革新砲.png",
              ],
   choices: [
@@ -674,7 +674,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーのEの対象地点の視界確保時間はどう変更された？",
-   images: [ "image/26.11/heimerdingerpng",
+   images: [ "image/26.11/ハイマーディンガー.png",
   "image/26.11/E - CH-2超電磁グレネード.png",
             ],
   choices: [
@@ -688,7 +688,7 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの革新砲が超電磁グレネードへの追撃に失敗する原因として報告されたものは？",
-  images: ["image/26.11/heimerdinger.png",
+  images: ["image/26.11/ハイマーディンガー.png",
    "image/26.11/E - CH-2超電磁グレネード.png",
            ],
   choices: [
