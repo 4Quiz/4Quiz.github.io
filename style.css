@@ -43,8 +43,9 @@ body {
 #question-image-area {
   display: flex;
   justify-content: center;
-  gap: 2px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
 }
 
 .question-image {
@@ -53,7 +54,7 @@ body {
   height: auto !important;
   border-radius: 10px;
   display: block;
-  margin: 0 2px 15px;
+  margin: 0 2px 15px !important;
 }
 
 /* 問題文 */
