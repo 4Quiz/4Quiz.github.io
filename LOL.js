@@ -570,7 +570,7 @@ window.getLOLQuizData = function() {
     "10%"
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11でヘリアの残響の蓄積ダメージはどう変更された？",
@@ -691,7 +691,7 @@ window.getLOLQuizData = function() {
     "移動速度の低下"
   ],
   answer: 0
-}   
+} ,  
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのQのクールダウンはどう変更された？",
@@ -775,7 +775,7 @@ window.getLOLQuizData = function() {
     "魔力反映率が削除された"
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11でクインの固有スキルのモンスターへのダメージは？",
@@ -845,7 +845,7 @@ window.getLOLQuizData = function() {
     "タワー下での防衛"
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11でティーモのレベルアップごとの物理防御はどう変更された？",
@@ -927,7 +927,7 @@ window.getLOLQuizData = function() {
     "アルティメットのダメージを上げるため"
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11で実験的ヘクスプレートの遠隔チャンピオン向け効果は？",
@@ -955,7 +955,7 @@ window.getLOLQuizData = function() {
   image: "image/26.11/死神の残り火.png",
   choices: ["魔法ダメージのみになった", "物理ダメージのみになった", "確定ダメージになった", "削除された"],
   answer: 0,
-}
+},
 {
   difficulty: '26.11',
   question: 'パッチ26.11で「ドリーム メーカー」の青の夢の泡沫のダメージ軽減量はどう変更された？',
@@ -1015,7 +1015,7 @@ window.getLOLQuizData = function() {
     '範囲効果ではクールダウンがなくなる'
   ],
   answer: 0
-} 
+} ,
 {
   difficulty: '26.11',
   question: 'パッチ26.11で「ムーンストーンの再生」は何が二重に効果を発揮しなくなった？',
@@ -1087,7 +1087,7 @@ window.getLOLQuizData = function() {
     '自分自身'
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11で騎士の誓いは、どの方向で調整された？",
@@ -1123,7 +1123,7 @@ window.getLOLQuizData = function() {
     "変更なし"
   ],
   answer: 0
-}
+},
 {
   difficulty: '26.11',
   question: "パッチ26.11でジーク コンバージェンスは、どのようなチャンピオン向けにQoL改善された？",
@@ -1171,7 +1171,7 @@ window.getLOLQuizData = function() {
     "味方にシールドを付与した時に発動"
   ],
   answer: 0
-}
+},
  {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーは、主にどのビルドへ戻す方向で調整された？",
@@ -1246,7 +1246,7 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
     "レベルごとの物理防御"
   ],
   answer: 0
-} 
+} ,
   {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの魔力ビルドに対して調整が入った主な理由は？",
@@ -1322,6 +1322,6 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
     "最大体力の5 / 10 / 15%に上昇した"
   ],
   answer: 0
-}
+},
   ];
 };
