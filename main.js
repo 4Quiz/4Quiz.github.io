@@ -126,13 +126,14 @@ function runQuiz() {
     const newAnswerIndex = shuffledChoices.indexOf(originalAnswerText);
 
     return {
-      question: q.question,
-      choices: shuffledChoices,
-      answer: newAnswerIndex,
-      difficulty: q.difficulty,
-      tag: q.tag,
-      correct: originalAnswerText,
-    };
+  question: q.question,
+  choices: shuffledChoices,
+  answer: newAnswerIndex,
+  difficulty: q.difficulty,
+  image: q.image,
+  images: q.images,
+  correct: originalAnswerText,
+};
   });
 
   currentQuestion = 0;
