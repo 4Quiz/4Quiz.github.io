@@ -647,7 +647,7 @@ window.getLOLQuizData = function() {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台の視界範囲はどう変更された？",
  images: [  "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/Q - H-28G革新砲.png",
+  "image/26.11/Q - H-28G革新砲.png",
            ],
   choices: [
     "585から650に増加",
