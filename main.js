@@ -153,9 +153,18 @@ function shuffleArray(array) {
 function showQuestion() {
   const q = quizData[currentQuestion];
 
+  const imageArea = document.getElementById("question-image-area");
   const questionElem = document.getElementById("question");
   const choicesElem = document.getElementById("choices");
   const feedbackElem = document.getElementById("feedback");
+
+  imageArea.innerHTML = "";
+
+  if (q.image) {
+    imageArea.innerHTML = `
+      <img src="${q.image}" alt="問題画像" class="question-image">
+    `;
+  }
 
   questionElem.textContent = `Q${currentQuestion + 1}. ${q.question}`;
   choicesElem.innerHTML = "";
