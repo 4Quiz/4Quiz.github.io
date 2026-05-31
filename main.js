@@ -237,6 +237,7 @@ function showEnd() {
   const feedbackElem = document.getElementById("feedback");
   const controlElem = document.getElementById("control");
   const endButton = document.getElementById("end-quiz-button");
+  const imageArea = document.getElementById("question-image-area");
  if (imageArea) {
     imageArea.innerHTML = "";
   }
@@ -279,6 +280,10 @@ function showDetails() {
 }
 
 function forceEndQuiz() {
-  currentQuestion = quizData.length;
+  const imageArea = document.getElementById("question-image-area");
+  if (imageArea) {
+    imageArea.innerHTML = "";
+  }
+
   showEnd();
 }
