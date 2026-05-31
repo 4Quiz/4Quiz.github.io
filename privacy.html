@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,61 +7,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    /* 全体背景と基本設定 */
     body {
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+      background-attachment: fixed;
       margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: #f5f7fa;
+      padding: 20px;
       color: #333;
-      line-height: 1.8;
+      min-height: 100vh;
+      line-height: 1.7;
     }
 
-    .container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 40px;
-      background: #fff;
+    /* カード型白背景 */
+    .policy-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      padding: 28px;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      max-width: 760px;
+      margin: 20px auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+
+    /* アニメーション（フェード＋スライドアップ） */
+    .card-animated {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
+      text-align: center;
       font-size: 28px;
-      border-bottom: 2px solid #e5e7eb;
-      color: #222;
+      margin: 0 0 24px;
+      padding-bottom: 16px;
+      border-bottom: 5px solid #78e5e5;
+      color: #333;
+      letter-spacing: 0.05em;
     }
 
     h2 {
-      margin-top: 32px;
-      margin-bottom: 10px;
       font-size: 18px;
-      color: #222;
-      border-left: 4px solid #4f8cff;
-      padding-left: 10px;
+      margin: 30px 0 10px;
+      padding-left: 12px;
+      border-left: 5px solid #78e5e5;
+      color: #333;
     }
 
     p {
-      margin: 0 0 14px;
       font-size: 15px;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      text-align: center;
+      margin-bottom: 24px;
     }
 
     .date {
-      margin-top: 32px;
       text-align: right;
+      margin-top: 32px;
       color: #666;
       font-size: 14px;
     }
 
+    /* スマホ向け調整 */
     @media (max-width: 600px) {
-      .container {
-        margin: 20px 12px;
-        padding: 24px 18px;
+      body {
+        padding: 12px;
+      }
+
+      .policy-card {
+        padding: 22px 18px;
+        margin: 10px auto;
       }
 
       h1 {
@@ -75,15 +102,19 @@
       p {
         font-size: 14px;
       }
+
+      .lead {
+        text-align: left;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
+  <main class="policy-card card-animated">
     <h1>プライバシーポリシー</h1>
 
-    <p>4Quiz（以下、「当サイト」といいます）では、利用者の個人情報の適切な取扱いに努めます。</p>
+    <p class="lead">4Quiz（以下、「当サイト」といいます）では、利用者の個人情報の適切な取扱いに努めます。</p>
 
     <h2>1. 個人情報の収集について</h2>
     <p>当サイトでは、お問い合わせフォームを通じて、名前やメールアドレスなどの個人情報を取得する場合があります。</p>
@@ -109,4 +140,3 @@
 </body>
 </html>
 ```
-
