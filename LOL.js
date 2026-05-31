@@ -602,16 +602,18 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でエコーの固有スキルの敵ごとのクールダウンは？",
-  image: "image/26.11/エコー.png",
-  image: "image/26.11/固有スキル - ゼロ・ドライブ.png",
+  images: [ "image/26.11/エコー.png",
+"image/26.11/固有スキル - ゼロ・ドライブ.png",
+             ],
   choices: ["5秒から4秒に短縮", "4秒から5秒に増加", "3秒に短縮", "削除された"],
   answer: 0,
 },
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台射程はどう変更された？",
-  image: "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/Q - H-28G革新砲.png",
+  images: [ "image/26.11/ハイマーディンガー.png",
+  "image/26.11/Q - H-28G革新砲.png",
+           ],
   choices: ["530から550に増加", "550から530に低下", "600に増加", "変更なし"],
   answer: 0,
 },
@@ -630,8 +632,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台が困っていた相手は？",
-  image: "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/Q - H-28G革新砲.png",
+  images: [  "image/26.11/ハイマーディンガー.png",
+ "image/26.11/Q - H-28G革新砲.png",
+      ],     
   choices: [
     "後衛ミニオン",
     "バロンナッシャー",
@@ -643,8 +646,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台の視界範囲はどう変更された？",
-  image: "image/26.11/ハイマーディンガー.png",
+ images: [  "image/26.11/ハイマーディンガー.png",
   image: "image/26.11/Q - H-28G革新砲.png",
+           ],
   choices: [
     "585から650に増加",
     "650から585に低下",
@@ -656,8 +660,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの砲台は、他に射程内の対象がいない場合どうなる？",
-  image: "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/Q - H-28G革新砲.png",
+  images: ["image/26.11/ハイマーディンガー.png",
+  "image/26.11/Q - H-28G革新砲.png",
+             ],
   choices: [
     "ミニオンに対する射程が50増加する",
     "チャンピオンに対するダメージが50増加する",
@@ -669,8 +674,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーのEの対象地点の視界確保時間はどう変更された？",
-  image: "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/E - CH-2超電磁グレネード.png",
+   images: [ "image/26.11/ハイマーディンガー.png",
+  "image/26.11/E - CH-2超電磁グレネード.png",
+            ],
   choices: [
     "1秒から1.25秒に増加",
     "1.25秒から1秒に低下",
@@ -682,8 +688,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でハイマーディンガーの革新砲が超電磁グレネードへの追撃に失敗する原因として報告されたものは？",
-  image: "image/26.11/ハイマーディンガー.png",
-  image: "image/26.11/E - CH-2超電磁グレネード.png",
+  images: ["image/26.11/ハイマーディンガー.png",
+   "image/26.11/E - CH-2超電磁グレネード.png",
+           ],
   choices: [
     "視界と砲台ロジックに関するわずかなタイミングのブレ",
     "マナ消費量の増加",
@@ -695,8 +702,9 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのQのクールダウンはどう変更された？",
-  image: "image/26.11/カサディン.png",
-  image: "image/26.11/Q - ヴォイドスフィア.png",
+  images: ["image/26.11/カサディン.png",
+  "image/26.11/Q - ヴォイドスフィア.png",
+           ],
   choices: ["全ランクで1秒短縮", "全ランクで1秒増加", "レベル1のみ短縮", "変更なし"],
   answer: 0,
 },
@@ -727,8 +735,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのQ - ヴォイドスフィアの最大ランク時クールダウンはどう変更された？",
-  image: "image/26.11/カサディン.png",
-  image: "image/26.11/Q - ヴォイドスフィア.png",
+  images: [
+    "image/26.11/カサディン.png",
+  "image/26.11/Q - ヴォイドスフィア.png",
+    ],
   choices: [
     "8秒から7秒に短縮",
     "7秒から8秒に増加",
@@ -740,8 +750,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのQ - ヴォイドスフィアのランク1クールダウンはどう変更された？",
-  image: "image/26.11/カサディン.png",
-  image: "image/26.11/Q - ヴォイドスフィア.png",
+  images: [
+  "image/26.11/カサディン.png",
+ "image/26.11/Q - ヴォイドスフィア.png",
+    ],
   choices: [
     "10秒から9秒に短縮",
     "9秒から10秒に増加",
@@ -753,8 +765,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのW - ネザーブレードの基本魔法ダメージはどう変更された？",
-  image: "image/26.11/カサディン.png",
-  image: "image/26.11/W - ネザーブレード.png",
+    images: [
+      "image/26.11/カサディン.png",
+   "image/26.11/W - ネザーブレード.png",
+        ],     
   choices: [
     "20から25に増加",
     "25から20に低下",
@@ -766,8 +780,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でカサディンのW - ネザーブレードの魔力反映率はどうなった？",
-  image: "image/26.11/カサディン.png",
-  image: "image/26.11/W - ネザーブレード.png",
+  images: [
+    "image/26.11/カサディン.png",
+  "image/26.11/W - ネザーブレード.png",
+    ],
   choices: [
     "魔力の10%のまま変更なし",
     "魔力の10%から15%に増加",
@@ -779,8 +795,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でクインの固有スキルのモンスターへのダメージは？",
-   image: "image/26.11/クイン.png",
-   image: "image/26.11/Q - 暗闇の強襲.png",
+  images: [  
+  "image/26.11/クイン.png",
+   "image/26.11/Q - 暗闇の強襲.png",
+    ],
   choices: ["50から75に上昇", "75から50に低下", "150から200に上昇", "変更なし"],
   answer: 0,
 },
@@ -811,8 +829,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でクインの固有スキル - 鷲匠のモンスターへのダメージはどう変更された？",
-    image: "image/26.11/クイン.png",
-  image: "image/26.11/固有スキル - 鷲匠.png",
+   images: [  
+     "image/26.11/クイン.png",
+ "image/26.11/固有スキル - 鷲匠.png",
+     ],
   choices: [
     "50から75に上昇",
     "75から50に低下",
@@ -824,8 +844,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でクインのQ - 暗闇の強襲のモンスターへのダメージはどう変更された？",
-    image: "image/26.11/クイン.png",
-  image: "image/26.11/Q - 暗闇の強襲.png",
+   images: [  
+     "image/26.11/クイン.png",
+"image/26.11/Q - 暗闇の強襲.png",
+      ],
   choices: [
     "150%から200%に上昇",
     "200%から150%に低下",
@@ -868,8 +890,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でティーモの毒たっぷり吹き矢の攻撃力反映率を調整する目的は？",
-   image: "image/26.11/ティーモ.png",
-  image: "image/26.11/E - 毒たっぷり吹き矢.png",
+  images: [
+    "image/26.11/ティーモ.png",
+   "image/26.11/E - 毒たっぷり吹き矢.png",
+   ],
   choices: [
     "シヴビルドを適切な強さにし、他ビルドも選びやすくするため",
     "ティーモを完全にAD専用にするため",
@@ -881,9 +905,11 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でティーモのEの通常攻撃時効果の増加攻撃力反映率はどう変更された？",
-   image: "image/26.11/ティーモ.png",
-  image: "image/26.11/E - 毒たっぷり吹き矢.png",
-  choices: [
+  images: [
+    "image/26.11/ティーモ.png",
+  "image/26.11/E - 毒たっぷり吹き矢.png",
+   ],
+    choices: [
     "増加攻撃力の10%から5%に低下",
     "増加攻撃力の5%から10%に上昇",
     "増加攻撃力の20%から10%に低下",
@@ -894,8 +920,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でティーモのEの毒による継続ダメージごとの増加攻撃力反映率はどう変更された？",
-   image: "image/26.11/ティーモ.png",
-  image: "image/26.11/E - 毒たっぷり吹き矢.png",
+    images: [
+      "image/26.11/ティーモ.png",
+   "image/26.11/E - 毒たっぷり吹き矢.png",
+      ],
   choices: [
     "増加攻撃力の20%から10%に低下",
     "増加攻撃力の10%から20%に上昇",
@@ -1199,8 +1227,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのQの追加魔法ダメージの基本倍率はどう変更された？",
-    image: "image/26.11/スモルダー.png",
-  image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
+     images: [
+       "image/26.11/スモルダー.png",
+   "image/26.11/固有スキル - 駆けだしドラゴン.png",
+       ],
   choices: [
     "固有スキルのスタックの40%から25%に低下",
     "固有スキルのスタックの25%から40%に上昇",
@@ -1224,8 +1254,10 @@ window.getLOLQuizData = function() {
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのEの追加魔法ダメージの基本倍率はどう変更された？",
- image: "image/26.11/スモルダー.png", 
-image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
+   images: [
+     "image/26.11/スモルダー.png", 
+　　　"image/26.11/固有スキル - 駆けだしドラゴン.png",
+      ],
   choices: [
     "固有スキルのスタックの12%から8%に低下",
     "固有スキルのスタックの8%から12%に上昇",
@@ -1237,8 +1269,10 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
 {
   difficulty: '26.11',
   question: "パッチ26.11でスモルダーのEの追加魔法ダメージは、何によってスケーリングするようになった？",
-　image: "image/26.11/スモルダー.png",
-  image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
+　  images: [
+     "image/26.11/スモルダー.png",
+　　　"image/26.11/固有スキル - 駆けだしドラゴン.png",
+      ],
   choices: [
     "クリティカル率と増加クリティカルダメージ",
     "スキルヘイスト",
@@ -1274,8 +1308,10 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の追加ダメージに新たに加わった反映率は？",
-    image: "image/26.11/シン・ジャオ.png",
-  image: "image/26.11/固有スキル - 不退転.png",
+  images: [  
+  "image/26.11/シン・ジャオ.png",
+  "image/26.11/固有スキル - 不退転.png",
+    ],
   choices: [
     "魔力の5 / 10 / 15 / 20%",
     "魔力の45 / 55 / 80%",
@@ -1287,8 +1323,10 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の追加ダメージの増加攻撃力反映率はどうなった？",
-    image: "image/26.11/シン・ジャオ.png",
-  image: "image/26.11/固有スキル - 不退転.png",
+      images: [
+        "image/26.11/シン・ジャオ.png",
+  　　　 "image/26.11/固有スキル - 不退転.png",
+         ],
   choices: [
     "15 / 30 / 45 / 60%のまま維持された",
     "15 / 30 / 45 / 60%から10 / 20 / 30 / 40%に低下した",
@@ -1300,8 +1338,10 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の体力回復量の魔力反映率はどう変更された？",
-    image: "image/26.11/シン・ジャオ.png",
-  image: "image/26.11/固有スキル - 不退転.png",
+     images: [
+       "image/26.11/シン・ジャオ.png",
+ 　　　　"image/26.11/固有スキル - 不退転.png",
+        ],
   choices: [
     "50 / 65 / 90%から45 / 55 / 80%に低下",
     "45 / 55 / 80%から50 / 65 / 90%に上昇",
@@ -1313,8 +1353,10 @@ image: "image/26.11/固有スキル - 駆けだしドラゴン.png",
 {
   difficulty: '26.11',
   question: "パッチ26.11でシン・ジャオの固有スキル - 不退転の体力回復量の最大体力反映率はどうなった？",
-    image: "image/26.11/シン・ジャオ.png",
-  image: "image/26.11/固有スキル - 不退転.png",
+  images: [ 
+  "image/26.11/シン・ジャオ.png",
+  "image/26.11/固有スキル - 不退転.png",
+      ],
   choices: [
     "最大体力の3 / 4 / 5%のまま維持された",
     "最大体力の3 / 4 / 5%から2 / 3 / 4%に低下した",
