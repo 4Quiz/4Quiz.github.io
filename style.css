@@ -228,40 +228,48 @@ fieldset:not(:last-of-type)::after {
   height: auto !important;
 }
 
+```css
 /* ========================================
    プライバシーポリシーページ用
    privacy.html
+   ※style.cssの一番下に追加
 ======================================== */
 
+/* 背景・基本設定をクイズページと統一 */
 body.privacy-page {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   background: linear-gradient(135deg, #e0f7fa, #fce4ec);
   background-attachment: fixed;
   margin: 0;
   padding: 20px;
+  text-align: center;
   color: #333;
   min-height: 100vh;
-  line-height: 1.7;
-  text-align: left;
+  line-height: 1.6;
 }
 
-body.privacy-page .policy-card {
+/* 白いカードデザイン */
+body.privacy-page .privacy-card {
   background-color: #ffffff;
   border: 1px solid #ddd;
-  padding: 28px;
+  padding: 24px;
   border-radius: 12px;
   max-width: 760px;
-  margin: 20px auto;
+  margin: 2px auto 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
   text-align: left;
 }
 
+/* アニメーション（フェード＋スライドアップ） */
 body.privacy-page .card-animated {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.6s ease forwards;
 }
 
+/* 既存CSSにfadeUpがあるなら重複しても基本問題ありません */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -269,64 +277,90 @@ body.privacy-page .card-animated {
   }
 }
 
-body.privacy-page .policy-card h1 {
+/* タイトル */
+body.privacy-page .privacy-card h1 {
+  font-size: 24px;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
   text-align: center;
-  font-size: 28px;
-  margin: 0 0 24px;
-  padding-bottom: 16px;
+  color: #333;
   border-bottom: 5px solid #78e5e5;
-  color: #333;
-  letter-spacing: 0.05em;
 }
 
-body.privacy-page .policy-card h2 {
-  font-size: 18px;
-  margin: 30px 0 10px;
-  padding-left: 12px;
-  border-left: 5px solid #78e5e5;
-  color: #333;
-}
-
-body.privacy-page .policy-card p {
-  font-size: 15px;
-  margin: 0 0 14px;
-}
-
-body.privacy-page .policy-lead {
+/* 最初の説明文 */
+body.privacy-page .privacy-lead {
   text-align: center;
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+
+/* 各項目 */
+body.privacy-page .privacy-section {
   margin-bottom: 24px;
 }
 
-body.privacy-page .policy-date {
+/* 見出し */
+body.privacy-page .privacy-section h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  padding-left: 12px;
+  color: #333;
+  border-left: 5px solid #78e5e5;
+}
+
+/* 本文 */
+body.privacy-page .privacy-card p {
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+/* 区切り線：クイズページの水色グラデーションに寄せる */
+body.privacy-page .privacy-section:not(:last-of-type)::after {
+  content: "";
+  display: block;
+  margin: 20px auto 0;
+  width: 80%;
+  max-width: 400px;
+  height: 5px;
+  background: linear-gradient(to right, transparent, #78e5e5, transparent);
+  border-radius: 2px;
+}
+
+/* 制定日 */
+body.privacy-page .privacy-date {
   text-align: right;
-  margin-top: 32px;
+  margin-top: 28px;
   color: #666;
   font-size: 14px;
 }
 
+/* スマホ向け調整 */
 @media (max-width: 600px) {
   body.privacy-page {
     padding: 12px;
   }
 
-  body.privacy-page .policy-card {
+  body.privacy-page .privacy-card {
     padding: 22px 18px;
-    margin: 10px auto;
+    margin-top: 2px;
   }
 
-  body.privacy-page .policy-card h1 {
-    font-size: 24px;
+  body.privacy-page .privacy-card h1 {
+    font-size: 22px;
   }
 
-  body.privacy-page .policy-card h2 {
-    font-size: 17px;
+  body.privacy-page .privacy-section h2 {
+    font-size: 16px;
   }
 
-  body.privacy-page .policy-card p {
+  body.privacy-page .privacy-card p {
     font-size: 14px;
   }
 
-  body.privacy-page .policy-lead {
+  body.privacy-page .privacy-lead {
     text-align: left;
   }
 }
+```
+
