@@ -40,7 +40,17 @@ body {
     transform: translateY(0);
   }
 }
-
+#question-image-area { 
+  text-align: center; margin: 20px 0 10px;
+} 
+.question-image { 
+  max-width: 90%;
+  width: 320px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 15px;
+}
 /* 問題文 */
 .question {
   font-size: 22px;
